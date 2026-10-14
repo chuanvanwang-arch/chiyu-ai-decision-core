@@ -1,0 +1,9 @@
+{
+  "_note": "契约层禁止出现的领域专有词。命中即视为底座退化为单域框架。",
+  "_basis": "2026-08-24 用户立的去污染判据：通用方法论只承载跨域洞察",
+  "_matching": "ascii 词按 \\b 整词匹配（避免 snake_case 里的 case、replacement 里的 place 等假阳性）；非 ascii 词按子串匹配",
+  "particle_types": ["cluster", "place", "ticket", "slab", "unit", "case", "run", "solution"],
+  "business_objects": ["host_bom", "host_dealer", "host_order", "host_asset", "host_channel", "dealer", "warranty", "charter", "rtm"],
+  "domains": ["ipd", "pdm", "p2p", "agent2b", "procurement", "supplier", "material", "crm"],
+  "redline_items_zh": ["城乡建设", "卫生健康", "劳动和社会保障", "市场管理"]
+}

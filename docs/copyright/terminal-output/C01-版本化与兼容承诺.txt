@@ -1,0 +1,61 @@
+==============================================================================
+  功能演示 01　版本化与兼容承诺
+  对外版本出口、能力清单与弃用别名查询
+==============================================================================
+
+$ from chiyu_kernel.api import __version__, api_version, contract_version
+  分发版本 __version__      : 0.1.0
+  门面版本 api_version()    : 1.0.0
+  契约版本 contract_version(): 1.0.0
+  常量 API_VERSION        : 1.0.0
+  常量 CONTRACT_VERSION   : 1.0.0
+
+$ capabilities()  —— 能力清单（机器可读，标注稳定/实验态档位）
+  共登记 29 项能力：
+    - contract                     stable
+    - vector                       stable
+    - ontology                     stable
+    - context                      stable
+    - actions                      stable
+    - domain                       stable
+    - persist                      stable
+    - approval                     stable
+    - graph                        stable
+    - mcpserver                    stable
+    - canary                       stable
+    - orchestration                stable
+    - evolution                    experimental
+    - events                       stable
+    - audit                        stable
+    - llm                          stable
+    - plugins                      stable
+    - session                      stable
+    - tools                        stable
+    - skills                       stable
+    - plan                         stable
+    - mcp                          stable
+    - hooks                        stable
+    - interaction                  stable
+    - workflow                     stable
+    - scenario                     stable
+    - store                        stable
+    - decision                     stable
+    - memory                       experimental
+
+$ capability_status(name)  —— 单项能力档位查询
+    capability_status('store') -> stable
+    capability_status('decision') -> stable
+    capability_status('memory') -> experimental
+    注：未登记的能力名查询会快速失败（见下）
+    capability_status('portal') -> KeyError: 'portal'
+
+$ deprecations()  —— 弃用别名查询（先告警后移除的弃用政策）
+  在册弃用别名 5 项：
+    - TIER_FTS_VECTOR          -> VTIER_FTS_VECTOR
+    - TIER_VECTOR              -> VTIER_VECTOR
+    - TIER_FTS                 -> VTIER_FTS
+    - TIER_NONE                -> VTIER_NONE
+    - TIER_ORDER               -> VTIER_ORDER
+
+$ require_capabilities({'store':'stable'})  —— 构建期版本钉与兼容断言
+  断言通过：能力 'store' 档位满足 'stable'（无异常抛出）

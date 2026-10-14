@@ -1,0 +1,9 @@
+# 门面改名表：layer.name=facade_name
+# 理由：读性 + 防静默覆盖（门面是唯一公共命名空间，裸名语义不明或会静默覆盖）。
+vector.available=vector_available
+vector.backend=vector_backend
+vector.info=vector_info
+vector.resolve=vector_resolve
+vector.is_available=vector_is_available
+scenario.from_dict=scenario_from_dict
+scenario.build_in_memory_server=scenario_build_in_memory_server

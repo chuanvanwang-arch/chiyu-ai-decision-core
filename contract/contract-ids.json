@@ -1,0 +1,49 @@
+{
+  "_note": "设计产物（2026-09-21）。已落地于本仓 contract/contract-ids.json —— 本仓 chiyu-foundation 为唯一事实源；原存于 BJ-12345/docs/contracts/，仅作历史留档。校验用法：node ~/.workbuddy/skills/brainstorming/scripts/validate-contract.mjs <doc.md> --registry <本文件>",
+  "_amendment_2026-09-22": "foundation-builder.memory.read 由 [\"BJ-12345\"] 增补为 [\"chiyu-foundation\", \"BJ-12345\"]（严格加法，既存契约块 memory=[BJ-12345] 仍有效）。理由：底座智能体须优先读本仓记忆命名空间；BJ-12345 保留为只读快照（守仓边界：不回写）。",
+  "agents": {
+    "foundation-builder": {
+      "contract_task_id": "ct-chiyu-foundation",
+      "skillCalls": [
+        "ai-particle-system-design",
+        "ai-ontology-vector-build",
+        "ai-memory-lifecycle",
+        "ai-context-layering",
+        "ai-native-action-design",
+        "ai-multi-agent-orchestration",
+        "ai-event-driven-evolution",
+        "ai-portal-page-generation",
+        "ai-feedback-loop",
+        "ai-capability-audit"
+      ],
+      "memory": { "read": ["chiyu-foundation", "BJ-12345"] },
+      "knowledgeScope": { "layers": ["L1", "L2"] }
+    },
+    "consumer-integrator": {
+      "contract_task_id": "ct-aps-consume",
+      "skillCalls": [
+        "ai-particle-system-design",
+        "ai-context-layering",
+        "ai-capability-audit"
+      ],
+      "memory": { "read": ["APS-ai-native"] },
+      "knowledgeScope": { "layers": ["L1", "L2"] }
+    },
+    "enterprise-platform-builder": {
+      "contract_task_id": "ct-chiyu-enterprise",
+      "skillCalls": [
+        "ai-particle-system-design",
+        "ai-ontology-vector-build",
+        "ai-memory-lifecycle",
+        "ai-context-layering",
+        "ai-native-action-design",
+        "ai-multi-agent-orchestration",
+        "ai-event-driven-evolution",
+        "ai-feedback-loop",
+        "ai-capability-audit"
+      ],
+      "memory": { "read": ["chiyu-foundation", "enterprise-platform"] },
+      "knowledgeScope": { "layers": ["L1", "L2"] }
+    }
+  }
+}

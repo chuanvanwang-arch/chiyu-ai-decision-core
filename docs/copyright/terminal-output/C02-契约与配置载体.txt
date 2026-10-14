@@ -1,0 +1,28 @@
+==============================================================================
+  功能演示 02　契约与配置载体
+  租户画像 TenantProfile 与红线规格 RedlineSpec
+==============================================================================
+
+$ 内核声明的核心语义角色 CORE_ROLES（任意业务域都成立）
+  CORE_ROLES            : ['unstructured_asset', 'entity', 'decision', 'memory', 'knowledge']
+
+$ 构造粒子类型集（消费方注入业务取值，内核只声明形态）
+  缺核心角色会被拦截             : ParticleTypeSet(names=('customer','order'))
+  已拦截 -> ValueError: 粒子类型集缺少核心语义角色：['unstructured_asset', 'entity', 'decision', 'memory', 'knowledge']
+  particle_types        : ['unstructured_asset', 'entity', 'decision', 'memory', 'knowledge', 'customer', 'order', 'contract']
+
+$ 构造受控谓词集 PredicateSet
+  knowledge 谓词          : ['BELONGS_TO', 'SIGNS']
+  memory 谓词             : ['DECIDED_ON', 'REFERENCED_PRECEDENT', 'DERIVED_FROM_EXCEPTION', 'ESTABLISHES_FRAME', 'OVERRIDES', 'CAUSED', 'INFLUENCED']
+
+$ 构造红线规格 RedlineSpec（互斥顶与敏感事项目录）
+
+$ 装配租户画像 TenantProfile
+  domain                : generic-demo
+  粒子类型                  : ['unstructured_asset', 'entity', 'decision', 'memory', 'knowledge', 'customer', 'order', 'contract']
+  自主放行阈值                : 0.79
+  红线·互斥顶                : ['预算外承诺']
+  红线·敏感项                : ['客户报价', '折扣权限']
+
+$ 构造期校验：非法取值必须快速失败（不静默接纳）
+  已拦截 -> ValueError: ParticleTypeSet 不得为空

@@ -1,0 +1,1 @@
+generated contract\capability-manifest.json (29 capabilities)

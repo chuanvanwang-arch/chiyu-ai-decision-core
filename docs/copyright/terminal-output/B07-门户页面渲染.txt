@@ -1,0 +1,5 @@
+schema_type   : table
+confidence    : 0.9
+需澄清        : False
+工作模式      : standard（portal导航=开；启用插件：terminal, loop, subagent, web_search, team）
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>季度订单</title><link rel="stylesheet" href="/portal/page.css"></head><body><main class="portal-page"><h1 class="page-title">季度订单</h1><section class="component component-metric-card"><h2 class="component-title">季度订单</h2><div class="binding" data-particle-type="order"><span class="metric" data-field="value">计数</span></div></section></main></body></html>

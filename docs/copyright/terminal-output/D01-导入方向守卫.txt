@@ -1,0 +1,16 @@
+扫描文件 110 个 · 跨面 import 113 条
+豁免：tests 20 个 · 弃用包 0 个
+  - packages/chiyu-host：该包已于 2026-09-26 标记弃用并并入 chiyu-enterprise；遗留内部 import 随弃用下线，⛔ 不得新增对该包的跨面依赖
+扁平导入 102 条 · 其中命中易冲突名 2 条（警告级；清单见 docs/sanctioned-import-surface.md §易冲突名清单）
+  ⚠ 以下易冲突名建议改用命名空间引用（api.<name>）：
+  - Particle：与消费方常见的 'Particle' 领域实体同名异义；建议 `import chiyu_kernel.api as api` 后经 `api.Particle` 引用
+  - normalize：泛用名；建议经命名空间引用，或 `from chiyu_kernel.contract import normalize as kernel_normalize` 显式改名
+  - canonical：泛用名；建议经 `api.canonical` 引用，避免遮蔽消费方 own canonical 逻辑
+  - LAYERS：foundation 内部层名集合，与消费方可能的 'LAYERS' 配置同名；建议显式改名或经命名空间引用
+  - ATTR_TYPES：属性类型枚举，易与消费方 own 属性类型定义撞名；建议显式改名
+  - vector_available：向量可用性标志（vector_ 前缀已降低撞名率，仍列出以提示）；建议经命名空间引用
+  - get_schema：取 schema 名，易与消费方 own get_schema 撞名；建议显式改名
+  - get_dsn：取 DSN，易与消费方 own 配置读取函数撞名；建议显式改名
+  - mask_dsn：掩码 DSN，易与消费方 own 掩码工具撞名；建议显式改名
+  - register_scenario：⛔ 跨仓同名异义（H1）：与 enterprise scenario.loader.register_scenario(name, factory) 签名互不兼容；决策场景登记请 `import chiyu_kernel.api as api` 后经 `api.register_scenario(...)` 或 `from chiyu_kernel.scenario.registry import register_scenario` 全限定引用
+OK: 跨分发 import 全部落在 sanctioned 面内

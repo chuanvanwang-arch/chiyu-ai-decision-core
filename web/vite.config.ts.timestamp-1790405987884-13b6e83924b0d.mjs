@@ -1,0 +1,21 @@
+// vite.config.ts
+import { defineConfig } from "file:///D:/system/chiyu-foundation/web/node_modules/vite/dist/node/index.js";
+import react from "file:///D:/system/chiyu-foundation/web/node_modules/@vitejs/plugin-react/dist/index.mjs";
+var vite_config_default = defineConfig({
+  plugins: [react()],
+  server: {
+    host: true,
+    port: 5173,
+    proxy: {
+      // 开发期把 /api 代理到本地内核后端（默认 8011，避免与 enterprise.host.app:8000 冲突）
+      "/api": {
+        target: "http://127.0.0.1:8011",
+        changeOrigin: true
+      }
+    }
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJEOlxcXFxzeXN0ZW1cXFxcY2hpeXUtZm91bmRhdGlvblxcXFx3ZWJcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfZmlsZW5hbWUgPSBcIkQ6XFxcXHN5c3RlbVxcXFxjaGl5dS1mb3VuZGF0aW9uXFxcXHdlYlxcXFx2aXRlLmNvbmZpZy50c1wiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9pbXBvcnRfbWV0YV91cmwgPSBcImZpbGU6Ly8vRDovc3lzdGVtL2NoaXl1LWZvdW5kYXRpb24vd2ViL3ZpdGUuY29uZmlnLnRzXCI7aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSdcbmltcG9ydCByZWFjdCBmcm9tICdAdml0ZWpzL3BsdWdpbi1yZWFjdCdcblxuLy8gXHU1M0MyXHU4MDAzIERlZXBTZWVrIEhhcm5lc3MgXHU2ODRDXHU5NzYyXHU3MjQ4XHU3Njg0XHU4RjdCXHU5MUNGXHU1MjREXHU3QUVGXHVGRjFBXHU3RUFGXHU5NzU5XHU2MDAxXHU4RDQ0XHU2RTkwXHVGRjBDXHU2NUUwXHU5NzAwXHU1NDBFXHU3QUVGXHU1MzczXHU1M0VGXHU2RjE0XHU3OTNBXHUzMDAyXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xuICBwbHVnaW5zOiBbcmVhY3QoKV0sXG4gIHNlcnZlcjoge1xuICAgIGhvc3Q6IHRydWUsXG4gICAgcG9ydDogNTE3MyxcbiAgICBwcm94eToge1xuICAgICAgLy8gXHU1RjAwXHU1M0QxXHU2NzFGXHU2MjhBIC9hcGkgXHU0RUUzXHU3NDA2XHU1MjMwXHU2NzJDXHU1NzMwXHU1MTg1XHU2ODM4XHU1NDBFXHU3QUVGXHVGRjA4XHU5RUQ4XHU4QkE0IDgwMTFcdUZGMENcdTkwN0ZcdTUxNERcdTRFMEUgZW50ZXJwcmlzZS5ob3N0LmFwcDo4MDAwIFx1NTFCMlx1N0E4MVx1RkYwOVxuICAgICAgJy9hcGknOiB7XG4gICAgICAgIHRhcmdldDogJ2h0dHA6Ly8xMjcuMC4wLjE6ODAxMScsXG4gICAgICAgIGNoYW5nZU9yaWdpbjogdHJ1ZSxcbiAgICAgIH0sXG4gICAgfSxcbiAgfSxcbn0pXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQW9SLFNBQVMsb0JBQW9CO0FBQ2pULE9BQU8sV0FBVztBQUdsQixJQUFPLHNCQUFRLGFBQWE7QUFBQSxFQUMxQixTQUFTLENBQUMsTUFBTSxDQUFDO0FBQUEsRUFDakIsUUFBUTtBQUFBLElBQ04sTUFBTTtBQUFBLElBQ04sTUFBTTtBQUFBLElBQ04sT0FBTztBQUFBO0FBQUEsTUFFTCxRQUFRO0FBQUEsUUFDTixRQUFRO0FBQUEsUUFDUixjQUFjO0FBQUEsTUFDaEI7QUFBQSxJQUNGO0FBQUEsRUFDRjtBQUNGLENBQUM7IiwKICAibmFtZXMiOiBbXQp9Cg==

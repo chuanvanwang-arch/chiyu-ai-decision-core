@@ -1,0 +1,37 @@
+{
+  "id": "wizard-build-single-1790425863",
+  "name": "单点提效·初稿包",
+  "level": "single",
+  "direction": "manufacturing",
+  "mode": "ptc",
+  "plugins": [
+    "terminal",
+    "loop",
+    "web_search"
+  ],
+  "workflow": {
+    "steps": [
+      {
+        "name": "gather",
+        "prompt": "取数与计算（单点闭环）",
+        "depends_on": []
+      },
+      {
+        "name": "deliver",
+        "prompt": "输出结果模板",
+        "depends_on": [
+          "gather"
+        ]
+      }
+    ]
+  },
+  "knowledge_needs": [
+    {
+      "layer": "L1",
+      "dims": [
+        "semantics"
+      ]
+    }
+  ],
+  "locked_by": null
+}

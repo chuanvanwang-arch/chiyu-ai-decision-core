@@ -1,0 +1,50 @@
+==============================================================================
+  功能演示 07　决策脊柱
+  六阶段顺序契约、九尺子评分、红线判定与自主放行闸门
+==============================================================================
+
+$ 顺序契约常量
+  SPINE_ORDER           : ['S1_context', 'S1_derive', 'S2_score', 'S3_aggregate', 'S4_redline', 'S5_persist']
+  顺序自校验                 : validate_spine_order(SPINE_ORDER) = None
+  九尺子                   : ['clarity', 'accuracy', 'precision', 'relevance', 'depth', 'breadth', 'logic', 'importance', 'fairness']
+  单尺满分                  : 4
+  八要素                   : ['intent', 'assumptions', 'inference', 'viewpoints', 'impact', 'risk_register', 'stop_loss', 'concept_refs']
+  自主放行缺省阈值              : 0.79
+
+  ── 场景A-满分放行 ──
+  decision_id           : demo-场景A-满分放行
+  stage_reached         : S5_persist
+  confidence            : 1.0
+  autonomous            : True
+  redline_hit           : False
+  redline_reasons       : []
+  rubric_missing        : []
+  elements_missing      : ['assumptions', 'inference', 'viewpoints', 'impact', 'risk_register', 'stop_loss', 'concept_refs']
+  persisted             : False
+
+  ── 场景B-全3分不放行 ──
+  decision_id           : demo-场景B-全3分不放行
+  stage_reached         : S5_persist
+  confidence            : 0.75
+  autonomous            : False
+  redline_hit           : False
+  redline_reasons       : []
+  rubric_missing        : []
+  elements_missing      : ['assumptions', 'inference', 'viewpoints', 'impact', 'risk_register', 'stop_loss', 'concept_refs']
+  persisted             : False
+  注：红线事项目录由消费方经 TenantProfile.redline 注入，内核零领域字面量；
+      判定方式为对决策文本做红线目录匹配（见 evaluate_redline）。
+
+  ── 场景C-红线命中（文本含红线事项） ──
+  decision_id           : demo-场景C-红线命中（文本含红线事项）
+  stage_reached         : S5_persist
+  confidence            : 1.0
+  autonomous            : False
+  redline_hit           : True
+  redline_reasons       : ['预算外承诺']
+  rubric_missing        : []
+  elements_missing      : ['assumptions', 'inference', 'viewpoints', 'impact', 'risk_register', 'stop_loss', 'concept_refs']
+  persisted             : False
+
+$ 顺序契约不可重排（构造期校验）
+  已拦截 -> ValueError: 裁决主链顺序被改动：期望 ('S1_context', 'S1_derive', 'S2_score', 'S3_aggregate', 'S4_redline', 'S5_persist')，实际 ('S5_persist', 'S1_derive', 'S2_score', 'S3_aggregate', 'S4_redline', 'S5_persist')。⛔ S1→S5 顺序不可重排（裁决主链规范·主链时序）

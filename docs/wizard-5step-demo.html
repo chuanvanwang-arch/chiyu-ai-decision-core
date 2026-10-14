@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="RNnPRL69aJDM0eLu1V2dcw">
+<head data-page-node-id="VOCCVsHYCiPIeZZEMSZCfH">
+<meta charset="UTF-8" data-page-node-id="wNnxG6MaKHLY5krNlmI72D">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="dBOK5t3uvGOFApCDTlKdtw">
+<title>ChiYu AI · 向导演示版 · 三级分类 × 五步引导</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --line:#e2e6ea;
+    --ink:#1f2430; --ink2:#5b6472; --ink3:#8a93a3;
+    --accent:#4b6cf5; --accent-weak:#e9edfd;
+    --t1:#855a1a; --t1b:#c98a1d; --t1fill:#fdf3e2;
+    --t2:#1d5f8a; --t2b:#2f84bc; --t2fill:#e8f3fb;
+    --t3:#1e7a52; --t3b:#2fa069; --t3fill:#e6f6ee;
+    --green:#1e7a52; --green-weak:#e6f6ee;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  .top{display:flex;align-items:center;gap:10px;padding:16px 28px;background:var(--card);border-bottom:1px solid var(--line)}
+  .logo{width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800;font-size:16px}
+  .brand{font-weight:700;font-size:16px}
+  .pill{font-size:12px;padding:3px 12px;border-radius:20px;background:var(--accent-weak);color:var(--accent);font-weight:600;margin-left:auto}
+  .body{flex:1;display:flex;justify-content:center;padding:36px 20px 24px}
+  .wrap{width:100%;max-width:1000px}
+  .steps{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 28px}
+  .step{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;background:var(--accent-weak);color:var(--accent);font-size:13px;font-weight:600;border:1px solid transparent}
+  .step .num{width:19px;height:19px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:11px}
+  .step.active{background:var(--accent);color:#fff;box-shadow:0 0 0 4px var(--accent-weak)}
+  .step.active .num{background:#fff;color:var(--accent)}
+  .step.done .num{background:var(--green)}
+  h1{font-size:24px;letter-spacing:-.2px;margin-bottom:6px}
+  .sub{color:var(--ink2);font-size:14px;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:820px){.grid,.grid2{grid-template-columns:1fr}}
+  .choice{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;transition:.15s;position:relative}
+  .choice:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(30,40,80,.06)}
+  .choice.selected{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-weak)}
+  .choice h3{font-size:16px;margin-bottom:7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .choice p{font-size:13px;color:var(--ink2)}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+  .t1{background:var(--t1fill);color:var(--t1)}
+  .t2{background:var(--t2fill);color:var(--t2)}
+  .t3{background:var(--t3fill);color:var(--t3)}
+  .scenes{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+  .scene{font-size:12px;color:var(--ink2);border-left:3px solid var(--line);padding:2px 8px;background:#fbfcfd;border-radius:6px}
+  .rec{font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--accent);color:#fff}
+  .grouplbl{font-size:12px;color:var(--ink3);font-weight:700;letter-spacing:.5px;margin:14px 0 8px}
+  .actions{display:flex;justify-content:space-between;margin-top:26px;gap:12px}
+  button{font:inherit;cursor:pointer;border-radius:10px;padding:11px 22px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.primary:disabled{opacity:.4;cursor:not-allowed}
+  button.ghost:disabled{opacity:.4;cursor:not-allowed}
+  .summary{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .kv{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;font-size:14px;margin:12px 0}
+  .kv b{font-weight:700}
+  .kv .lab{color:var(--ink3);font-size:13px}
+  .badgechip{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;background:#f0f2f5;color:var(--ink2);margin-left:4px}
+  .foot{color:var(--ink3);font-size:12px;text-align:center;padding:14px}
+</style>
+</head>
+<body data-page-node-id="OmApD7G5S9X2ExQMreYqGd">
+<div class="top" data-page-node-id="HbIGMrdAKF6q9ayuMtEzp8">
+  <span class="logo" data-page-node-id="Xor2BA9l7VoGFac6sC74FM">C</span><span class="brand" data-page-node-id="MbxOHeA6AknXEbpBSykm98">ChiYu Portal</span>
+  <span class="pill" data-page-node-id="qvezaOfWNfFO6w1l1DSzB2">演示版 · 三级分类 × 五步引导（销售叙事稿）</span>
+</div>
+
+<div class="body" data-page-node-id="64XGHBhf2ANQBaNAxzDu91"><div class="wrap" data-page-node-id="CovndfsyfQ79BsgxQk3yjX">
+  <div class="steps" id="steps" data-page-node-id="Zxg7bnqs91YfIMY2DrNNKS"></div>
+  <h1 id="h1" data-page-node-id="kYbA9bsZ5Wpyxpi9bJkBYG"></h1>
+  <p class="sub" id="sub" data-page-node-id="NXQqN4yfE3y8U3j118mTQL"></p>
+  <div id="content" data-page-node-id="q2q8EfMlPXtuZsb36lguHO"></div>
+  <div class="actions" data-page-node-id="HXgRuQWMIseGsFM8foIddP">
+    <button class="ghost" id="prev" onclick="go(-1)" data-page-node-id="ZnOYLgY8ygppCQDmWypCsD">上一步</button>
+    <button class="primary" id="next" onclick="go(1)" data-page-node-id="z9rE4qQ0XHEt4VRcg6GcaW">下一步</button>
+  </div>
+</div></div>
+
+<div class="foot" data-page-node-id="qwxlgCXSJ0N6ZNS65OUgbJ">演示版向导 · 边界判据：AI 替几个岗位、替了几次（而非系统数量 / 链路长短）· ChiYu AI</div>
+
+<script>
+const LEVELS = [
+  { id:'single', label:'单点提效', cls:'t1', en:'Single-agent Efficiency',
+    criteria:'单智能体取数算出完整结果，交回一个岗位一次确认；即使跨多系统，人只参与「输入 + 一次审批」。',
+    solution:'沉淀为可复用 SKILL / 单 Agent', rec:['ptc','minimal'],
+    scenes:['自动化批号（财务）','售后保修成本自动化（财务）','返利全流程自动化（财务）'] },
+  { id:'flow', label:'流程提效', cls:'t2', en:'Multi-agent Orchestration',
+    criteria:'AI 输出必须喂送下一个岗位做不同的事，A→B→C 接力；每环节有不同角色的独立动作 / 批准。',
+    solution:'智能体编排（multi-agent orchestration）', rec:['standard'],
+    scenes:['智能仓配调度系统（供应链）'] },
+  { id:'end2end', label:'端到端增值', cls:'t3', en:'End-to-End Value',
+    criteria:'从开始到结束改变经营结果：感知 → 认知 → 决策 → 执行闭环，AI 完成决策、人做审核（HITL）。',
+    solution:'企业级 AI 决策平台能力', rec:['standard','creative'],
+    scenes:['AI 经营分析平台（财务）','韧性供应链动销预测（供应链）','Quality Center 质量运营（质量）'] },
+];
+const DIRECTIONS = [
+  { id:'finance', label:'金融 / 风控', hint:'信贷、反欺诈、合规' },
+  { id:'retail', label:'零售 / 电商', hint:'选品、运营、客服' },
+  { id:'mfg', label:'制造 / 供应链', hint:'排程、质量、履约' },
+  { id:'generic', label:'通用助手', hint:'跨领域问答与任务' },
+];
+const WORKFLOWS = [
+  { id:'decide', label:'决策辅助', hint:'决策脊柱 · 红线校验 · 闭环审核', level:'end2end' },
+  { id:'research', label:'调研检索', hint:'联网 + 子智能体归纳，一次交回', level:'single' },
+  { id:'automate', label:'任务编排', hint:'跨岗位接力 · 状态机 + 审批闸门', level:'flow' },
+  { id:'build', label:'能力沉淀', hint:'封装为 SKILL / 插件，单点复用', level:'single' },
+];
+const MODES = [
+  { id:'standard', label:'标准模式', desc:'全能力默认编排：6 插件全开 + 确定性决策脊柱。', accent:'t3' },
+  { id:'ptc', label:'PTC 模式', desc:'先写编排脚本再批量调工具：先生成幂等计划再批量 dispatch。', accent:'t1' },
+  { id:'minimal', label:'极简模式', desc:'仅终端：只剩受限对话环；最快上手、最小心智负担。', accent:'t2' },
+  { id:'creative', label:'创造模式', desc:'Everything is a Plugin：全插件 + 自定义 hook 与模式声明。', accent:'t3' },
+];
+const STEPS = ['① 选层级','② 选方向','③ 选工作流','④ 选工作模式','⑤ 进入工作台'];
+const SEL = { level:null, direction:null, workflow:null, mode:null };
+
+const H1 = ['你的场景属于哪一级？','在哪个行业 / 方向做事？','做什么事？（按层级分组）','用哪种运行时装配？','确认并进入'];
+const SUB = [
+  '三级分类的边界不按系统数量 / 链路长短划分，而按「AI 替几个岗位、替了几次」划分——这是后续所有解法选择的锚点。',
+  '方向经 TenantProfile 注入，门户零领域字面量；此处为演示枚举。',
+  '每个工作流归属一个层级，选中后将联动推荐第 4 步的工作模式。',
+  '工作模式 = 解法的运行时形态；带「推荐」徽标的模式与你在第 1 步选择的层级匹配。',
+  '层级 → 方向 → 工作流 → 模式，四层选择形成一条可回溯的证据链。',
+];
+
+function renderSteps(){
+  document.getElementById('steps').innerHTML = STEPS.map((s,i)=>{
+    const cls = 'step' + (i===SEL._step?' active':(i<SEL._step?' done':''));
+    return '<span class="'+cls+'"><span class="num">'+(i<SEL._step?'✓':i+1)+'</span>'+s+'</span>';
+  }).join('');
+}
+function card(html, onclick, selected){
+  return '<div class="choice'+(selected?' selected':'')+'" onclick="'+onclick+'">'+html+'</div>';
+}
+function render(){
+  const st = SEL._step;
+  document.getElementById('h1').textContent = H1[st];
+  document.getElementById('sub').textContent = SUB[st];
+  const c = document.getElementById('content');
+  if(st===0){
+    c.innerHTML = '<div class="grid">'+LEVELS.map(l=>
+      card('<h3><span class="tag '+l.cls+'">'+l.label+'</span><span style="font-size:11px;color:#8a93a3">'+l.en+'</span></h3>'
+        +'<p>'+l.criteria+'</p>'
+        +'<div class="scenes">'+l.scenes.map(s=>'<div class="scene" style="border-left-color:currentColor">'+s+'</div>').join('')+'</div>'
+        +'<p style="margin-top:10px;font-size:12px"><b>解法：</b>'+l.solution+'</p>',
+        'pick(\'level\',\''+l.id+'\')', SEL.level===l.id)
+    ).join('')+'</div>';
+  } else if(st===1){
+    c.innerHTML = '<div class="grid2">'+DIRECTIONS.map(d=>
+      card('<h3>'+d.label+'</h3><p>'+d.hint+'</p>','pick(\'direction\',\''+d.id+'\')',SEL.direction===d.id)
+    ).join('')+'</div>';
+  } else if(st===2){
+    c.innerHTML = LEVELS.map(l=>{
+      const ws = WORKFLOWS.filter(w=>w.level===l.id);
+      if(!ws.length) return '';
+      return '<div class="grouplbl"><span class="tag '+l.cls+'">'+l.label+'</span>　'+l.solution+'</div>'
+        +'<div class="grid2">'+ws.map(w=>
+          card('<h3>'+w.label+'</h3><p>'+w.hint+'</p>','pick(\'workflow\',\''+w.id+'\')',SEL.workflow===w.id)
+        ).join('')+'</div>';
+    }).join('');
+  } else if(st===3){
+    const rec = (LEVELS.find(l=>l.id===SEL.level)||{rec:[]}).rec;
+    c.innerHTML = '<div class="grid2">'+MODES.map(m=>
+      card('<h3>'+m.label+(rec.includes(m.id)?' <span class="rec">推荐</span>':'')+'</h3><p>'+m.desc+'</p>',
+        'pick(\'mode\',\''+m.id+'\')',SEL.mode===m.id)
+    ).join('')+'</div>';
+  } else {
+    const L=LEVELS.find(l=>l.id===SEL.level), D=DIRECTIONS.find(d=>d.id===SEL.direction),
+          W=WORKFLOWS.find(w=>w.id===SEL.workflow), M=MODES.find(m=>m.id===SEL.mode);
+    c.innerHTML = '<div class="summary"><h3 style="margin-bottom:4px">已选配置</h3>'
+      +'<div class="kv">'
+      +'<span class="lab">层级</span><b><span class="tag '+(L?L.cls:'')+'">'+(L?L.label:'—')+'</span></b>'
+      +'<span class="lab">方向</span><b>'+(D?D.label:'—')+'</b>'
+      +'<span class="lab">工作流</span><b>'+(W?W.label:'—')+' <span class="badgechip">'+(W?(LEVELS.find(l=>l.id===W.level)||{}).label:'')+'</span></b>'
+      +'<span class="lab">工作模式</span><b>'+(M?M.label:'—')+'</b>'
+      +'</div><p style="font-size:13px;color:var(--ink2)">进入工作台后，对话页将按该模式装配插件与编排开关；'
+      +'层级徽标将随会话透出，便于审计与复盘「为什么用这个解法」。</p></div>';
+  }
+  document.getElementById('prev').disabled = st===0;
+  const nx = document.getElementById('next');
+  nx.textContent = st===4?'进入工作台 →':'下一步';
+  const blocked = (st===0&&!SEL.level)||(st===1&&!SEL.direction)||(st===2&&!SEL.workflow)||(st===3&&!SEL.mode);
+  nx.disabled = !!blocked;
+  renderSteps();
+}
+function pick(k,v){
+  SEL[k]=v;
+  if(k==='level'){ // 联动：预置推荐模式（可在第 4 步更改）
+    const rec=(LEVELS.find(l=>l.id===v)||{rec:[]}).rec;
+    if(rec.length && !rec.includes(SEL.mode)) SEL.mode=rec[0];
+  }
+  render();
+}
+function go(d){
+  if(d>0 && SEL._step===4) return finish();
+  SEL._step=Math.max(0,Math.min(4,SEL._step+d));
+  render();
+}
+function finish(){
+  document.getElementById('h1').textContent='✓ 已进入工作台（演示结束）';
+  document.getElementById('sub').textContent='功能版中，此处将切换为会话侧栏 + 对话主区 + 能力面板，并按所选模式装配插件。';
+  document.getElementById('content').innerHTML='';
+  document.getElementById('prev').disabled=false; document.getElementById('next').disabled=true;
+}
+SEL._step=0; render();
+</script>
+</body>
+</html>

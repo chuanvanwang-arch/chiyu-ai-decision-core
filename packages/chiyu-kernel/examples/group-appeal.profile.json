@@ -1,0 +1,22 @@
+{
+  "_comment": "消费方画像示例：反抽 demo「群诉智能发现」域（β5 判据实证：demo 域可表达）。",
+  "domain": "group_appeal",
+  "particle_types": [
+    "unstructured_asset", "entity", "decision", "memory", "knowledge",
+    "group", "respondent", "claim"
+  ],
+  "predicates": {
+    "knowledge": [
+      { "predicate": "mentions", "from_type": "unstructured_asset", "to_type": "entity", "cardinality": "N:M", "source": "rule", "layer": "K" },
+      { "predicate": "belongs_to", "from_type": "entity", "to_type": "group", "cardinality": "N:1", "source": "rule", "layer": "K" },
+      { "predicate": "asserts_claim", "from_type": "entity", "to_type": "claim", "cardinality": "1:N", "source": "rule", "layer": "K" },
+      { "predicate": "responds_to", "from_type": "respondent", "to_type": "claim", "cardinality": "N:M", "source": "rule", "layer": "K" }
+    ]
+  },
+  "redline": {
+    "mutex_top": ["group", "respondent"],
+    "sensitive": []
+  },
+  "rubric_thresholds": { "coherence": 0.79 },
+  "autonomous_threshold": 0.79
+}

@@ -1,0 +1,27 @@
+{
+  "decision_id": "cli-是否批准该客户的预算追加请求",
+  "stage_reached": "S5_persist",
+  "confidence": 0.8056,
+  "autonomous": true,
+  "redline_hit": false,
+  "redline_reasons": [],
+  "rubric_missing": [],
+  "elements_missing": [
+    "assumptions",
+    "inference",
+    "viewpoints",
+    "impact",
+    "risk_register",
+    "stop_loss",
+    "concept_refs"
+  ],
+  "persisted": false,
+  "work_mode": "standard",
+  "work_mode_plugins": [
+    "terminal",
+    "loop",
+    "subagent",
+    "web_search",
+    "team"
+  ]
+}

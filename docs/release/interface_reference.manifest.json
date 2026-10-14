@@ -1,0 +1,3186 @@
+{
+  "generated_at": "2026-10-13T03:24:47.778956+00:00",
+  "package_version": "0.1.0",
+  "api_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "version": "0.1.0",
+  "source": "packages/*/src (pinned, not wheel)",
+  "total_listed": 525,
+  "facades": {
+    "chiyu_kernel.api": {
+      "count": 407,
+      "symbols": [
+        {
+          "name": "TenantProfile",
+          "kind": "class",
+          "signature": "(domain: 'str', particle_types: 'ParticleTypeSet', predicates: 'PredicateSet' = <factory>, redline: 'RedlineSpec' = <factory>, rubric_thresholds: 'Mapping[str, float]' = <factory>, autonomous_threshold: 'float' = 0.79, extras: 'Mapping[str, Any]' = <factory>) -> None",
+          "module": "chiyu_kernel.contract.profile"
+        },
+        {
+          "name": "PgVectorStore",
+          "kind": "class",
+          "signature": "(profile: 'TenantProfile', schema: 'str' = '') -> 'None'",
+          "module": "chiyu_kernel.store.pg_store"
+        },
+        {
+          "name": "ddl_statements",
+          "kind": "function",
+          "signature": "(profile: 'TenantProfile', schema: 'str') -> 'List[str]'",
+          "module": "chiyu_kernel.store.ddl"
+        },
+        {
+          "name": "vector_index_ddl",
+          "kind": "function",
+          "signature": "(schema: 'str') -> 'List[str]'",
+          "module": "chiyu_kernel.store.ddl"
+        },
+        {
+          "name": "assert_no_free_jsonb",
+          "kind": "function",
+          "signature": "(schema_tables: 'dict') -> 'List[str]'",
+          "module": "chiyu_kernel.store.ddl"
+        },
+        {
+          "name": "created_schemas",
+          "kind": "function",
+          "signature": "() -> 'set[str]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "close_schema",
+          "kind": "function",
+          "signature": "(schema: 'Optional[str]' = None, *, testing: 'bool | None' = None) -> 'int'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "pad_to_dim",
+          "kind": "function",
+          "signature": "(vec: 'Sequence[float]', dim: 'int') -> 'list[float]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "vec_to_pg",
+          "kind": "function",
+          "signature": "(vec: 'Sequence[float] | None', *, dim: 'int') -> 'Optional[str]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "open_store",
+          "kind": "function",
+          "signature": "(profile: 'TenantProfile', schema: 'str' = '') -> 'PgVectorStore'",
+          "module": "chiyu_kernel.api"
+        },
+        {
+          "name": "DB_TESTING_ENV",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DSN_ENV",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DSN_TEST_ENV",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "FORBIDDEN_HOSTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "FORBIDDEN_ROLES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "IDENT_MAX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SCHEMA_ENV",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TESTING_FLAG_ENV",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VALID_FORMS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DBConfigError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "assert_no_hard_delete",
+          "kind": "function",
+          "signature": "(sql: 'str') -> 'None'",
+          "module": "chiyu_kernel.store.pg_store"
+        },
+        {
+          "name": "assert_safe_identifier",
+          "kind": "function",
+          "signature": "(name: 'str', *, what: 'str' = 'identifier', max_len: 'int' = 63) -> 'str'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "close_all",
+          "kind": "function",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "connect",
+          "kind": "function",
+          "signature": "(*, dsn: 'Optional[str]' = None, schema: 'Optional[str]' = None, timeout: 'int' = 5, autocommit: 'bool' = False, connect_factory: 'Any' = None, application_name: 'Optional[str]' = None) -> 'Any'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "cursor",
+          "kind": "function",
+          "signature": "(*, testing: 'bool | None' = None, dict_rows: 'bool' = True) -> 'Iterator[Any]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "driver_available",
+          "kind": "function",
+          "signature": "() -> 'bool'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "driver_error",
+          "kind": "function",
+          "signature": "() -> 'Optional[str]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "drop_ephemeral_schemas",
+          "kind": "function",
+          "signature": "(schemas: 'Optional[Iterable[str]]' = None) -> 'dict'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "drop_test_schema",
+          "kind": "function",
+          "signature": "(schema: 'str', test_prefix: 'str' = 't_', *, conn: 'Any' = None, lock_timeout_ms: 'int' = 5000) -> 'bool'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "ensure_schema",
+          "kind": "function",
+          "signature": "(*, profile, testing: 'bool | None' = None, create_vector_index: 'bool' = True, schema: 'Optional[str]' = None) -> 'dict'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "ephemeral_schemas",
+          "kind": "function",
+          "signature": "() -> 'set[str]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "get_dsn",
+          "kind": "function",
+          "signature": "(*, testing: 'bool | None' = None, required_db_prefix: 'str' = '', testing_db_suffix: 'str' = '', dsn_env: 'str | None' = None, dsn_test_env: 'str | None' = None, form: 'str' = 'auto') -> 'str'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "get_schema",
+          "kind": "function",
+          "signature": "(default: 'str' = '', *, schema_env: 'str | None' = None) -> 'str'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "in_testing_context",
+          "kind": "function",
+          "signature": "() -> 'bool'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "make_cursor",
+          "kind": "function",
+          "signature": "(conn: 'Any', *, dict_rows: 'bool' = True, row_factory: 'Any' = None) -> 'Any'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "mask_dsn",
+          "kind": "function",
+          "signature": "(dsn: 'str | None') -> 'str'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "parse_dsn",
+          "kind": "function",
+          "signature": "(dsn: 'str', form: 'str' = 'auto') -> 'dict'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "pg_to_vec",
+          "kind": "function",
+          "signature": "(raw: 'Any') -> 'Optional[list[float]]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "probe_schema_isolation",
+          "kind": "function",
+          "signature": "(*, testing: 'bool | None' = None) -> 'dict'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "raw_dsn",
+          "kind": "function",
+          "signature": "(*, testing: 'bool | None' = None, dsn_env: 'str | None' = None, dsn_test_env: 'str | None' = None) -> 'str'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "register_ephemeral",
+          "kind": "function",
+          "signature": "(schema: 'str', ephemeral_prefix: 'str' = 't_') -> 'None'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "shared",
+          "kind": "function",
+          "signature": "(*, testing: 'bool | None' = None, connect_factory: 'Any' = None) -> 'Any'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "validate_dsn",
+          "kind": "function",
+          "signature": "(dsn: 'str', *, required_db_prefix: 'str' = '', testing_db_suffix: 'str' = '', dsn_env: 'str | None' = None, dsn_test_env: 'str | None' = None, form: 'str' = 'auto') -> 'dict'",
+          "module": "chiyu_kernel.store.dsn"
+        },
+        {
+          "name": "BACKEND_APP_NAME_PREFIX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DEFAULT_LOCK_TIMEOUT_MS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "own_backend_identity",
+          "kind": "function",
+          "signature": "() -> 'str'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "terminate_backends_sql",
+          "kind": "function",
+          "signature": "(identity: 'str') -> 'tuple[str, tuple]'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "terminate_own_backends",
+          "kind": "function",
+          "signature": "(*, conn: 'Any' = None) -> 'int'",
+          "module": "chiyu_kernel.store.conn"
+        },
+        {
+          "name": "SPINE_ORDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "validate_spine_order",
+          "kind": "function",
+          "signature": "(order: 'Tuple[str, ...]') -> 'None'",
+          "module": "chiyu_kernel.contract.decision"
+        },
+        {
+          "name": "RUBRIC_KEYS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RUBRIC_SCALE_MAX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "EIGHT_ELEMENTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUTONOMOUS_RELEASE_DEFAULT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_RECORD_KIND",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_EVENT_APPROVAL_PENDING",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_EVENT_APPROVAL_REJECTED",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_EVENT_APPROVAL_RESUMED",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ELEMENT_MISSING_CAP",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ELEMENT_RUBRIC_CAPS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CoverageReport",
+          "kind": "class",
+          "signature": "(expected: 'int', materialized: 'int', hash_fallback: 'int', min_coverage: 'float') -> None",
+          "module": "chiyu_kernel.vector.coverage"
+        },
+        {
+          "name": "compute_coverage",
+          "kind": "function",
+          "signature": "(rows: 'Iterable[Mapping]', min_coverage: 'float' = 0.8) -> 'CoverageReport'",
+          "module": "chiyu_kernel.vector.coverage"
+        },
+        {
+          "name": "backfill_plan",
+          "kind": "function",
+          "signature": "(rows: 'Iterable[Mapping]', limit: 'int' = 500) -> 'list'",
+          "module": "chiyu_kernel.vector.coverage"
+        },
+        {
+          "name": "DEFAULT_MIN_COVERAGE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "HASH_PROVIDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "HASH_DIM",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "InferBackend",
+          "kind": "class",
+          "signature": "(backend: str | None = None, model_dir: str | None = None)",
+          "module": "chiyu_kernel.vector.infer"
+        },
+        {
+          "name": "cosine",
+          "kind": "function",
+          "signature": "(a: numpy.ndarray, b: numpy.ndarray) -> float",
+          "module": "chiyu_kernel.vector.infer"
+        },
+        {
+          "name": "hash_signature",
+          "kind": "function",
+          "signature": "(text: str, dim: int = 384) -> numpy.ndarray",
+          "module": "chiyu_kernel.vector.infer"
+        },
+        {
+          "name": "stable_stringify",
+          "kind": "function",
+          "signature": "(obj: Any) -> str",
+          "module": "chiyu_kernel.vector.infer"
+        },
+        {
+          "name": "content_hash",
+          "kind": "function",
+          "signature": "(payload: Any) -> str",
+          "module": "chiyu_kernel.vector.infer"
+        },
+        {
+          "name": "hash_vector",
+          "kind": "function",
+          "signature": "(text: str, dim: int = 384) -> numpy.ndarray",
+          "module": "chiyu_kernel.vector.infer"
+        },
+        {
+          "name": "OnnxRunner",
+          "kind": "class",
+          "signature": "(model_dir: 'str | None' = None, backend: 'str' = 'cpu')",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "OnnxUnavailable",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "artifact_info",
+          "kind": "function",
+          "signature": "(model_dir: 'str | None' = None) -> 'dict'",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "clear_cache",
+          "kind": "function",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "config_dim",
+          "kind": "function",
+          "signature": "(model_dir: 'str | None' = None) -> 'int'",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "get_runner",
+          "kind": "function",
+          "signature": "(model_dir: 'str | None' = None, backend: 'str' = 'cpu') -> 'OnnxRunner'",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "resolve_model_dir",
+          "kind": "function",
+          "signature": "(model_dir: 'str | None' = None) -> 'str'",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "vector_available",
+          "kind": "function",
+          "signature": "(*, column_dim: 'int') -> 'bool'",
+          "module": "chiyu_kernel.vector.index_vector"
+        },
+        {
+          "name": "vector_backend",
+          "kind": "function",
+          "signature": "() -> 'InferBackend'",
+          "module": "chiyu_kernel.vector.index_vector"
+        },
+        {
+          "name": "vector_info",
+          "kind": "function",
+          "signature": "() -> 'dict'",
+          "module": "chiyu_kernel.vector.index_vector"
+        },
+        {
+          "name": "vector_is_available",
+          "kind": "function",
+          "signature": "(model_dir: 'str | None' = None) -> 'bool'",
+          "module": "chiyu_kernel.vector.onnx_runner"
+        },
+        {
+          "name": "vector_resolve",
+          "kind": "function",
+          "signature": "(text: 'str', *, column_dim: 'int') -> 'tuple[Optional[np.ndarray], Optional[str], Optional[str]]'",
+          "module": "chiyu_kernel.vector.index_vector"
+        },
+        {
+          "name": "is_padded_tag",
+          "kind": "function",
+          "signature": "(tag: 'Optional[str]') -> 'bool'",
+          "module": "chiyu_kernel.vector.index_vector"
+        },
+        {
+          "name": "tag_for_dim",
+          "kind": "function",
+          "signature": "(n: 'int', column_dim: 'int') -> 'Optional[str]'",
+          "module": "chiyu_kernel.vector.index_vector"
+        },
+        {
+          "name": "Particle",
+          "kind": "class",
+          "signature": "(particle_id: 'str', type: 'str', layer: 'str' = 'L1', label: 'Optional[str]' = None, status: 'Optional[str]' = None, subject_id: 'Optional[str]' = None, raw_refs: 'Optional[Tuple[str, ...]]' = None, fulltext: 'Optional[str]' = None, embedding: 'Optional[List[float]]' = None, provider: 'Optional[str]' = None, content_hash: 'Optional[str]' = None, attrs: 'dict' = <factory>) -> None",
+          "module": "chiyu_kernel.ontology.particle"
+        },
+        {
+          "name": "OntologyGraph",
+          "kind": "class",
+          "signature": "(predicates: 'Optional[PredicateSet]' = None)",
+          "module": "chiyu_kernel.ontology.graph"
+        },
+        {
+          "name": "normalize",
+          "kind": "function",
+          "signature": "(name: 'str', suffixes: 'Sequence[str]' = ()) -> 'str'",
+          "module": "chiyu_kernel.ontology.graph"
+        },
+        {
+          "name": "ensure_embedding",
+          "kind": "function",
+          "signature": "(particle: 'Particle', *, column_dim: 'int', text: 'Optional[str]' = None) -> 'str'",
+          "module": "chiyu_kernel.ontology.hooks"
+        },
+        {
+          "name": "ensure_tsvector",
+          "kind": "function",
+          "signature": "(particle: 'Particle') -> 'str'",
+          "module": "chiyu_kernel.ontology.hooks"
+        },
+        {
+          "name": "ontology_sync",
+          "kind": "function",
+          "signature": "(particle: 'Particle', onto: 'Optional[OntologyGraph]') -> 'None'",
+          "module": "chiyu_kernel.ontology.hooks"
+        },
+        {
+          "name": "BackfillChannel",
+          "kind": "class",
+          "signature": "(log_track: 'Any | None' = None)",
+          "module": "chiyu_kernel.ontology.backfill"
+        },
+        {
+          "name": "CONTEXT_LAYERS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "KnowledgeNeed",
+          "kind": "class",
+          "signature": "(layer: 'str', dims: 'tuple' = (), key: 'str' = '') -> None",
+          "module": "chiyu_kernel.context.assembly"
+        },
+        {
+          "name": "SupplyReport",
+          "kind": "class",
+          "signature": "(required: 'tuple' = (), supplied: 'tuple' = (), missing: 'tuple' = (), degraded_layers: 'tuple' = ()) -> None",
+          "module": "chiyu_kernel.context.assembly"
+        },
+        {
+          "name": "AssemblyResult",
+          "kind": "class",
+          "signature": "(facts: 'dict' = <factory>, supply_report: 'SupplyReport' = <factory>) -> None",
+          "module": "chiyu_kernel.context.assembly"
+        },
+        {
+          "name": "assemble",
+          "kind": "function",
+          "signature": "(needs: 'Sequence[KnowledgeNeed]', provided: 'Mapping[str, Iterable]') -> 'AssemblyResult'",
+          "module": "chiyu_kernel.context.assembly"
+        },
+        {
+          "name": "LAYER_LABELS_ZH",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "KNOWLEDGE_NEEDS_DEFAULT_DIMS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "KNOWLEDGE_LAYERS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "LAYER_NAMES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "KnowledgeNeeds",
+          "kind": "class",
+          "signature": "(task_name: 'str', knowledge_level: 'int', semantic_entities: 'tuple[str, ...]' = (), data_sources: 'tuple[str, ...]' = (), required_fields: 'tuple[str, ...]' = (), query_terms: 'tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.context.knowledge_needs"
+        },
+        {
+          "name": "SupplyDemandGap",
+          "kind": "class",
+          "signature": "(layer: 'str', code: 'str', detail: 'str') -> None",
+          "module": "chiyu_kernel.context.knowledge_needs"
+        },
+        {
+          "name": "build_knowledge_needs",
+          "kind": "function",
+          "signature": "(task_name: 'str', knowledge_level: 'int' = 2, *, entities: 'Sequence[str]' = (), places: 'Sequence[str]' = (), categories: 'Sequence[str]' = (), data_sources: 'Sequence[str]' = (), required_fields: 'Sequence[str]' = (), query_terms: 'Sequence[str]' = ()) -> 'KnowledgeNeeds'",
+          "module": "chiyu_kernel.context.knowledge_needs"
+        },
+        {
+          "name": "check_supply_demand",
+          "kind": "function",
+          "signature": "(needs: 'KnowledgeNeeds', supply: 'Mapping[str, Any]') -> 'list[SupplyDemandGap]'",
+          "module": "chiyu_kernel.context.knowledge_needs"
+        },
+        {
+          "name": "missing_context_dimensions",
+          "kind": "function",
+          "signature": "(supplied: 'Mapping[str, Any] | Iterable[str]') -> 'list[str]'",
+          "module": "chiyu_kernel.context.knowledge_needs"
+        },
+        {
+          "name": "MAX_ENTITIES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MAX_DATASOURCES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MAX_REQUIRED_FIELDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MAX_QUERY_TERMS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MIN_PRECEDENTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MIN_EMBEDDING_COVERAGE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CONTEXT_DIMENSIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GAP_MISSING_ENTITY",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GAP_INSUFFICIENT_EXPERIENCE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GAP_LOW_COVERAGE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GAP_MISSING_DATA",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GAP_MISSING_HITL",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GAP_MISSING_GATE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VTIER_FTS_VECTOR",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VTIER_VECTOR",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VTIER_FTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VTIER_NONE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VTIER_ORDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_FTS_VECTOR",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_VECTOR",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_FTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_NONE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_ORDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RecalledItem",
+          "kind": "class",
+          "signature": "(key: 'str', score: 'float', fts_hits: 'int' = 0) -> None",
+          "module": "chiyu_kernel.context.retrieval"
+        },
+        {
+          "name": "RetrievalEvidence",
+          "kind": "class",
+          "signature": "(tier: 'str', pool_size: 'int', vector_used: 'bool', fts_prefiltered: 'bool', embedding_coverage: 'float', notes: 'tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.context.retrieval"
+        },
+        {
+          "name": "RetrievalResult",
+          "kind": "class",
+          "signature": "(items: 'tuple[RecalledItem, ...]', evidence: 'RetrievalEvidence') -> None",
+          "module": "chiyu_kernel.context.retrieval"
+        },
+        {
+          "name": "degraded_recall",
+          "kind": "function",
+          "signature": "(query_terms: 'Sequence[str]', pool: 'Optional[Sequence[Mapping[str, Any]]]', *, query_vector: 'Optional[Sequence[float]]' = None, top_k: 'int' = 10, min_coverage: 'float' = 0.8) -> 'RetrievalResult'",
+          "module": "chiyu_kernel.context.retrieval"
+        },
+        {
+          "name": "to_supply_layer",
+          "kind": "function",
+          "signature": "(result: 'RetrievalResult', *, layer: 'str' = 'L2', dim: 'str' = 'precedent') -> 'dict'",
+          "module": "chiyu_kernel.context.retrieval"
+        },
+        {
+          "name": "RECALL_REFERENCE_PREDICATE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RECALL_FRAME_PREDICATE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "recall_precedents",
+          "kind": "function",
+          "signature": "(query_terms: 'Sequence[str]', *, notes: 'Any' = None, graph: 'Any' = None, subject_id: 'str' = '', query_vector: 'Optional[Sequence[float]]' = None, top_k: 'int' = 10, rrf_k: 'int' = 60, reference_predicate: 'str' = 'REFERENCED_PRECEDENT', frame_predicate: 'str' = 'ESTABLISHES_FRAME') -> 'RetrievalResult'",
+          "module": "chiyu_kernel.context.recall_memory"
+        },
+        {
+          "name": "build_memory_recaller",
+          "kind": "function",
+          "signature": "(*, notes: 'Any' = None, graph: 'Any' = None, top_k: 'int' = 10) -> 'Any'",
+          "module": "chiyu_kernel.context.recall_memory"
+        },
+        {
+          "name": "RRF_K_DEFAULT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "rrf_fuse",
+          "kind": "function",
+          "signature": "(results: 'Sequence[RetrievalResult]', *, k: 'int' = 60, top_k: 'int' = 10) -> 'RetrievalResult'",
+          "module": "chiyu_kernel.context.fuse"
+        },
+        {
+          "name": "ActionSpec",
+          "kind": "class",
+          "signature": "(name: 'str', capability: 'str', mutating: 'bool' = False, high_risk: 'bool' = False, has_force: 'bool' = False) -> None",
+          "module": "chiyu_kernel.actions.registry"
+        },
+        {
+          "name": "ActionRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.actions.registry"
+        },
+        {
+          "name": "ACTION_MIN",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ACTION_MAX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MIN_SUCCESS_LEN",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AgentRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.orchestration.agent_registry"
+        },
+        {
+          "name": "AgentRegistryError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.orchestration.agent_registry"
+        },
+        {
+          "name": "AgentSpec",
+          "kind": "class",
+          "signature": "(key: 'str', contract_task_id: 'str', skills: 'Tuple[str, ...]' = (), memory: 'Tuple[str, ...]' = (), knowledge_scope: 'Mapping' = <factory>, success: 'str' = '') -> None",
+          "module": "chiyu_kernel.orchestration.agent_registry"
+        },
+        {
+          "name": "TASK_STATES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TERMINAL_STATES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "BLOCK_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TASK_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SYSTEM_TASK_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "FAILURE_LIMIT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MAX_REDO",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ZOMBIE_STALE_SECONDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SYSTEM_ANCHOR_PREFIX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ALLOWED_TRANSITIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TaskStateError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "is_terminal",
+          "kind": "function",
+          "signature": "(state: 'str') -> 'bool'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "assert_state",
+          "kind": "function",
+          "signature": "(state: 'str', *, what: 'str' = 'state') -> 'str'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "assert_block_kind",
+          "kind": "function",
+          "signature": "(block_kind: 'Optional[str]') -> 'Optional[str]'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "assert_transition",
+          "kind": "function",
+          "signature": "(frm: 'str', to: 'str', *, block_kind: 'Optional[str]' = None) -> 'None'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "assert_reset",
+          "kind": "function",
+          "signature": "(frm: 'str') -> 'None'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "assert_anchor",
+          "kind": "function",
+          "signature": "(decision_id: 'Optional[str]', *, kind: 'str') -> 'str'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "system_anchor",
+          "kind": "function",
+          "signature": "(scope: 'str') -> 'str'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "assert_result_ref",
+          "kind": "function",
+          "signature": "(result_ref: 'Optional[str]') -> 'str'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "fold_history",
+          "kind": "function",
+          "signature": "(rows: 'Iterable[dict]') -> 'dict'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "is_stuck",
+          "kind": "function",
+          "signature": "(state: 'str', *, redo_count: 'int' = 0, age_seconds: 'Optional[float]' = None) -> 'bool'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "summarize",
+          "kind": "function",
+          "signature": "() -> 'dict[str, Any]'",
+          "module": "chiyu_kernel.orchestration.state_machine"
+        },
+        {
+          "name": "DISPATCH_CFG_SECTION",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DISPATCH_CFG_DEFAULTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "read_dispatch_cfg",
+          "kind": "function",
+          "signature": "(cfg: 'Any') -> 'tuple[dict[str, Any], list[dict]]'",
+          "module": "chiyu_kernel.orchestration.dispatch_cfg"
+        },
+        {
+          "name": "dispatch_cfg_report",
+          "kind": "function",
+          "signature": "(cfg: 'Any') -> 'dict[str, Any]'",
+          "module": "chiyu_kernel.orchestration.dispatch_cfg"
+        },
+        {
+          "name": "IDEM_PREFIX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "derive_idem_key",
+          "kind": "function",
+          "signature": "(scope: 'str', parts: 'Sequence[Any]') -> 'str'",
+          "module": "chiyu_kernel.orchestration.idem"
+        },
+        {
+          "name": "nightly_idem_key",
+          "kind": "function",
+          "signature": "(reason: 'str', *, window: 'str', parts: 'Sequence[Any]') -> 'str'",
+          "module": "chiyu_kernel.orchestration.idem"
+        },
+        {
+          "name": "Agent",
+          "kind": "class",
+          "signature": "(key: 'str', system_prompt: 'str' = '', tools_scope: 'str' = '', pre_step: 'Optional[Callable]' = None) -> None",
+          "module": "chiyu_kernel.orchestration.agent_runtime"
+        },
+        {
+          "name": "LiveAgentRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.orchestration.agent_runtime"
+        },
+        {
+          "name": "AgentLoop",
+          "kind": "class",
+          "signature": "(*, llm, tools, sessions: 'SessionManager', live_agents, redline_guard=None, loop_guard=None, hook_bus=None, dispatch: 'str' = 'sequential') -> 'None'",
+          "module": "chiyu_kernel.orchestration.agent_loop"
+        },
+        {
+          "name": "LoopGuard",
+          "kind": "class",
+          "signature": "(*, thresholds: 'Sequence[int]' = (3, 5, 8), max_steps: 'int' = 25) -> 'None'",
+          "module": "chiyu_kernel.orchestration.loop_guard"
+        },
+        {
+          "name": "StepVerdict",
+          "kind": "class",
+          "signature": "(terminate: 'Optional[str]' = None, reminder: 'Optional[str]' = None) -> None",
+          "module": "chiyu_kernel.orchestration.loop_guard"
+        },
+        {
+          "name": "SharedTask",
+          "kind": "class",
+          "signature": "(id: 'str', title: 'str', write_scope: 'Tuple[str, ...]' = (), output_contract: 'str' = '', status: 'str' = 'pending', owner: 'Optional[str]' = None, revision: 'int' = 1) -> None",
+          "module": "chiyu_kernel.orchestration.team"
+        },
+        {
+          "name": "SubagentDescriptor",
+          "kind": "class",
+          "signature": "(key: 'str', role: 'str', instruction: 'str', tools_scope: 'str' = '', tier: 'str' = 'default', depth_limit: 'int' = 2, max_concurrent: 'int' = 1, pre_step: 'Optional[Callable[[Mapping[str, Any]], Optional[Mapping[str, Any]]]]' = None) -> None",
+          "module": "chiyu_kernel.orchestration.subagent"
+        },
+        {
+          "name": "SubagentPool",
+          "kind": "class",
+          "signature": "(*, llm: 'LlmProvider', tools: 'ToolRegistry', sessions: 'SessionManager', redline_guard=None, llm_by_tier: 'Optional[Mapping[str, LlmProvider]]' = None) -> 'None'",
+          "module": "chiyu_kernel.orchestration.subagent"
+        },
+        {
+          "name": "TeamMember",
+          "kind": "class",
+          "signature": "(key: 'str', role: 'str', model_tier: 'str' = 'default', permission: 'str' = 'readonly', action_allowlist: 'Tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.orchestration.team"
+        },
+        {
+          "name": "TeamRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.orchestration.team"
+        },
+        {
+          "name": "TeamSpec",
+          "kind": "class",
+          "signature": "(id: 'str', name: 'str', lead_key: 'str', members: 'Dict[str, TeamMember]' = <factory>, scenario: 'str' = '', lead_allowlist: 'Tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.orchestration.team"
+        },
+        {
+          "name": "KnobError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.evolution.knob"
+        },
+        {
+          "name": "KnobSpec",
+          "kind": "class",
+          "signature": "(name: 'str', tier: 'str' = 'auto', min_value: 'Optional[float]' = None, max_value: 'Optional[float]' = None, default: 'Optional[float]' = None, widen_direction: 'Optional[str]' = None, autonomy_related: 'bool' = False) -> None",
+          "module": "chiyu_kernel.evolution.knob"
+        },
+        {
+          "name": "KnobTable",
+          "kind": "class",
+          "signature": "(specs) -> 'None'",
+          "module": "chiyu_kernel.evolution.knob"
+        },
+        {
+          "name": "classify_change",
+          "kind": "function",
+          "signature": "(spec: 'KnobSpec', old: 'Any', new: 'Any') -> 'str'",
+          "module": "chiyu_kernel.evolution.knob"
+        },
+        {
+          "name": "is_forbidden_change",
+          "kind": "function",
+          "signature": "(spec: 'KnobSpec', direction: 'str', *, redline_hit: 'bool' = False) -> 'bool'",
+          "module": "chiyu_kernel.evolution.knob"
+        },
+        {
+          "name": "ReplayVerdict",
+          "kind": "class",
+          "signature": "(verdict: 'str', checked: 'int' = 0, mismatches: 'List[str]' = <factory>, reason: 'str' = '') -> None",
+          "module": "chiyu_kernel.evolution.replay"
+        },
+        {
+          "name": "shadow_replay",
+          "kind": "function",
+          "signature": "(samples: 'Sequence[Mapping[str, Any]]', formula: 'Callable[[Mapping[str, Any]], Any]', new_params: 'Mapping[str, Any]', *, min_samples: 'int' = 1) -> 'ReplayVerdict'",
+          "module": "chiyu_kernel.evolution.replay"
+        },
+        {
+          "name": "BASELINE_FIELD",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PrescriptionError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.evolution.prescription"
+        },
+        {
+          "name": "Prescription",
+          "kind": "class",
+          "signature": "(prescription_id: 'str', knob: 'str', old_value: 'Any', new_value: 'Any', direction: 'str', tier: 'str', state: 'str' = 'pending', verdict: 'str' = 'reject', replay_ref: 'Optional[str]' = None, audit_ref: 'Optional[str]' = None, reason: 'str' = '') -> None",
+          "module": "chiyu_kernel.evolution.prescription"
+        },
+        {
+          "name": "assert_prescription_transition",
+          "kind": "function",
+          "signature": "(frm: 'str', to: 'str') -> 'None'",
+          "module": "chiyu_kernel.evolution.prescription"
+        },
+        {
+          "name": "begin_replay",
+          "kind": "function",
+          "signature": "(rx: 'Prescription', *, on_state=None) -> 'Prescription'",
+          "module": "chiyu_kernel.evolution.prescription"
+        },
+        {
+          "name": "apply_atomic",
+          "kind": "function",
+          "signature": "(rx: 'Prescription', *, writer: 'Callable[[str, Any], None]', on_state: 'Callable[[str, str], None]', rollback_writer: 'Optional[Callable[[str, Any], None]]' = None, redline_hit: 'bool' = False) -> 'Tuple[Prescription, str]'",
+          "module": "chiyu_kernel.evolution.prescription"
+        },
+        {
+          "name": "roll_back",
+          "kind": "function",
+          "signature": "(rx: 'Prescription', *, writer: 'Callable[[str, Any], None]', on_state: 'Callable[[str, str], None]') -> 'Prescription'",
+          "module": "chiyu_kernel.evolution.prescription"
+        },
+        {
+          "name": "GuardViolation",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.evolution.guard"
+        },
+        {
+          "name": "READONLY_PATH_PREFIXES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "assert_writable",
+          "kind": "function",
+          "signature": "(path: 'str') -> 'str'",
+          "module": "chiyu_kernel.evolution.guard"
+        },
+        {
+          "name": "assert_not_baseline_skill",
+          "kind": "function",
+          "signature": "(fq_name: 'str') -> 'str'",
+          "module": "chiyu_kernel.evolution.guard"
+        },
+        {
+          "name": "g2_suspend_on_redline",
+          "kind": "function",
+          "signature": "(redline_hit: 'bool') -> 'bool'",
+          "module": "chiyu_kernel.evolution.guard"
+        },
+        {
+          "name": "meta_redline_hits",
+          "kind": "function",
+          "signature": "(actions: 'Sequence[str]') -> 'List[str]'",
+          "module": "chiyu_kernel.evolution.guard"
+        },
+        {
+          "name": "SkillDraftError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.evolution.skill_draft"
+        },
+        {
+          "name": "SkillDraft",
+          "kind": "class",
+          "signature": "(name: 'str', calls_actions: 'Tuple[str, ...]' = (), status: 'str' = 'draft', namespace: 'str' = 'method') -> None",
+          "module": "chiyu_kernel.evolution.skill_draft"
+        },
+        {
+          "name": "validate_draft",
+          "kind": "function",
+          "signature": "(draft: 'SkillDraft', *, action_names: 'Iterable[str]', allowed_namespaces: 'Iterable[str]' = ('method', 'domain')) -> 'Tuple[str, List[str]]'",
+          "module": "chiyu_kernel.evolution.skill_draft"
+        },
+        {
+          "name": "promote",
+          "kind": "function",
+          "signature": "(draft: 'SkillDraft', *, verdict: 'str') -> 'SkillDraft'",
+          "module": "chiyu_kernel.evolution.skill_draft"
+        },
+        {
+          "name": "ChannelNotReadyError",
+          "kind": "class",
+          "signature": "(report: 'ReadinessReport') -> 'None'",
+          "module": "chiyu_kernel.evolution.readiness"
+        },
+        {
+          "name": "ReadinessReport",
+          "kind": "class",
+          "signature": "(checks: 'List[CheckResult]' = <factory>) -> None",
+          "module": "chiyu_kernel.evolution.readiness"
+        },
+        {
+          "name": "assert_channel_may_open",
+          "kind": "function",
+          "signature": "() -> 'ReadinessReport'",
+          "module": "chiyu_kernel.evolution.readiness"
+        },
+        {
+          "name": "readiness_report",
+          "kind": "function",
+          "signature": "() -> 'ReadinessReport'",
+          "module": "chiyu_kernel.evolution.readiness"
+        },
+        {
+          "name": "CheckResult",
+          "kind": "class",
+          "signature": "(check_id: 'str', title: 'str', status: 'str', detail: 'str' = '', discriminating: 'bool' = False) -> None",
+          "module": "chiyu_kernel.evolution.readiness"
+        },
+        {
+          "name": "EventBus",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.events.bus"
+        },
+        {
+          "name": "PublishReport",
+          "kind": "class",
+          "signature": "(event_id: 'str', delivered: 'int' = 0, failed: 'Tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.events.bus"
+        },
+        {
+          "name": "Subscriber",
+          "kind": "callable",
+          "signature": "(*args, **kwargs)",
+          "module": "typing"
+        },
+        {
+          "name": "counting_subscriber",
+          "kind": "function",
+          "signature": "(counter: 'dict') -> 'Subscriber'",
+          "module": "chiyu_kernel.events.subscribers"
+        },
+        {
+          "name": "log_subscriber",
+          "kind": "function",
+          "signature": "(log: 'list', *, prefix: 'str' = '') -> 'Subscriber'",
+          "module": "chiyu_kernel.events.subscribers"
+        },
+        {
+          "name": "canonical",
+          "kind": "function",
+          "signature": "(record: 'Mapping', fields: 'Sequence[str]' = ('audit_id', 'ts', 'domain', 'action', 'subject_id', 'decision_id', 'prescription_id', 'from_value', 'to_value', 'verdict')) -> 'str'",
+          "module": "chiyu_kernel.audit.chain"
+        },
+        {
+          "name": "chain_hash",
+          "kind": "function",
+          "signature": "(prev_hash: 'str', record: 'Mapping') -> 'str'",
+          "module": "chiyu_kernel.audit.chain"
+        },
+        {
+          "name": "build_chain",
+          "kind": "function",
+          "signature": "(records: 'Iterable[Mapping]') -> 'List[str]'",
+          "module": "chiyu_kernel.audit.chain"
+        },
+        {
+          "name": "verify_chain",
+          "kind": "function",
+          "signature": "(records: 'Sequence[Mapping]', expected: 'Sequence[str]') -> 'VerifyResult'",
+          "module": "chiyu_kernel.audit.chain"
+        },
+        {
+          "name": "VerifyResult",
+          "kind": "class",
+          "signature": "(ok: 'bool', checked: 'int', first_bad_index: 'int' = -1, reason: 'str' = '') -> None",
+          "module": "chiyu_kernel.audit.chain"
+        },
+        {
+          "name": "EMPTY_PLACEHOLDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIERS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DEFAULT_TIER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DEFAULT_PARALLEL",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "normalize_tier",
+          "kind": "function",
+          "signature": "(raw: 'object') -> 'str | None'",
+          "module": "chiyu_kernel.llm.tier"
+        },
+        {
+          "name": "is_cloud_endpoint",
+          "kind": "function",
+          "signature": "(base_url: 'str | None') -> 'bool'",
+          "module": "chiyu_kernel.llm.tier"
+        },
+        {
+          "name": "resolve_storyline_policy",
+          "kind": "function",
+          "signature": "(*, model: 'str' = '', base_url: 'str' = '', tier: 'object' = None, storyline: 'object' = None) -> 'dict'",
+          "module": "chiyu_kernel.llm.tier"
+        },
+        {
+          "name": "tier_spec",
+          "kind": "function",
+          "signature": "(tier: 'object' = None) -> 'dict'",
+          "module": "chiyu_kernel.llm.tier"
+        },
+        {
+          "name": "ToolCall",
+          "kind": "class",
+          "signature": "(name: 'str', args: 'Mapping[str, Any]' = <factory>) -> None",
+          "module": "chiyu_kernel.llm.client"
+        },
+        {
+          "name": "LlmResponse",
+          "kind": "class",
+          "signature": "(content: 'str' = '', tool_calls: 'List[ToolCall]' = <factory>) -> None",
+          "module": "chiyu_kernel.llm.client"
+        },
+        {
+          "name": "LlmProvider",
+          "kind": "class",
+          "signature": "(*args, **kwargs)",
+          "module": "chiyu_kernel.llm.client"
+        },
+        {
+          "name": "StubProvider",
+          "kind": "class",
+          "signature": "(responses: 'Optional[List[LlmResponse]]' = None) -> 'None'",
+          "module": "chiyu_kernel.llm.client"
+        },
+        {
+          "name": "DeepSeekProvider",
+          "kind": "class",
+          "signature": "(*, api_key: 'str' = '', base_url: 'str' = '', model: 'str' = 'deepseek-chat', ctx: 'int' = 8192) -> 'None'",
+          "module": "chiyu_kernel.llm.client"
+        },
+        {
+          "name": "build_provider",
+          "kind": "function",
+          "signature": "(*, tier=None, provider: 'str' = 'deepseek', **kw) -> 'LlmProvider'",
+          "module": "chiyu_kernel.llm.client"
+        },
+        {
+          "name": "SessionEvent",
+          "kind": "class",
+          "signature": "(kind: 'str', payload: 'Mapping[str, Any]' = <factory>, ts: 'float' = <factory>, seq: 'int' = 0) -> None",
+          "module": "chiyu_kernel.session"
+        },
+        {
+          "name": "SessionLog",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.session"
+        },
+        {
+          "name": "SessionManager",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.session"
+        },
+        {
+          "name": "ToolSpec",
+          "kind": "class",
+          "signature": "(name: 'str', description: 'str', scope: 'str' = '', high_risk: 'bool' = False) -> None",
+          "module": "chiyu_kernel.tools"
+        },
+        {
+          "name": "ToolRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.tools"
+        },
+        {
+          "name": "ToolNotFound",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.tools"
+        },
+        {
+          "name": "ScopeDenied",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.tools"
+        },
+        {
+          "name": "GuardDenied",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.tools"
+        },
+        {
+          "name": "SandboxedFs",
+          "kind": "class",
+          "signature": "(root: 'str') -> 'None'",
+          "module": "chiyu_kernel.tools.fs"
+        },
+        {
+          "name": "PathEscapeError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.tools.fs"
+        },
+        {
+          "name": "register_fs_tools",
+          "kind": "function",
+          "signature": "(registry: 'ToolRegistry', root: 'str') -> 'None'",
+          "module": "chiyu_kernel.tools.fs"
+        },
+        {
+          "name": "CommandRejected",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.tools.shell"
+        },
+        {
+          "name": "run_command",
+          "kind": "function",
+          "signature": "(cmd: 'str', *, cwd: 'Optional[str]' = None, allowlist: 'Optional[set]' = None, timeout: 'float' = 30) -> 'str'",
+          "module": "chiyu_kernel.tools.shell"
+        },
+        {
+          "name": "TerminalSession",
+          "kind": "class",
+          "signature": "(cwd: 'Optional[str]' = None, allowlist: 'Optional[set]' = None) -> 'None'",
+          "module": "chiyu_kernel.tools.shell"
+        },
+        {
+          "name": "register_shell_tools",
+          "kind": "function",
+          "signature": "(registry: 'ToolRegistry', *, allowlist: 'Optional[set]' = None, cwd: 'Optional[str]' = None) -> 'None'",
+          "module": "chiyu_kernel.tools.shell"
+        },
+        {
+          "name": "SkillSpec",
+          "kind": "class",
+          "signature": "(name: 'str', description: 'str', content: 'str' = '', when_to_use: 'str' = '', model_invocable: 'bool' = True, user_invocable: 'bool' = True, source: 'str' = 'runtime', provider: 'str' = 'runtime', rank: 'int' = 250, metadata: 'Mapping[str, Any]' = <factory>) -> None",
+          "module": "chiyu_kernel.skills"
+        },
+        {
+          "name": "SkillRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.skills"
+        },
+        {
+          "name": "SkillConflict",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.skills"
+        },
+        {
+          "name": "is_skill_name",
+          "kind": "function",
+          "signature": "(name: 'str') -> 'bool'",
+          "module": "chiyu_kernel.skills"
+        },
+        {
+          "name": "load_catalog",
+          "kind": "function",
+          "signature": "(catalog: 'Mapping[str, Mapping[str, Any]]') -> 'SkillRegistry'",
+          "module": "chiyu_kernel.skills"
+        },
+        {
+          "name": "TodoItem",
+          "kind": "class",
+          "signature": "(content: 'str', status: 'str' = 'pending', active_form: 'str' = '') -> None",
+          "module": "chiyu_kernel.plan"
+        },
+        {
+          "name": "TodoList",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.plan"
+        },
+        {
+          "name": "PlanStep",
+          "kind": "class",
+          "signature": "(content: 'str', status: 'str' = 'pending') -> None",
+          "module": "chiyu_kernel.plan"
+        },
+        {
+          "name": "Plan",
+          "kind": "class",
+          "signature": "(steps: 'list[PlanStep] | None' = None) -> 'None'",
+          "module": "chiyu_kernel.plan"
+        },
+        {
+          "name": "PlanMode",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.plan"
+        },
+        {
+          "name": "PlanStateError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.plan"
+        },
+        {
+          "name": "McpToolDef",
+          "kind": "class",
+          "signature": "(raw_name: 'str', description: 'str') -> None",
+          "module": "chiyu_kernel.mcp"
+        },
+        {
+          "name": "McpTransport",
+          "kind": "class",
+          "signature": "()",
+          "module": "chiyu_kernel.mcp"
+        },
+        {
+          "name": "InMemoryMcpServer",
+          "kind": "class",
+          "signature": "(tools: 'Mapping[str, Tuple[str, Callable]]') -> 'None'",
+          "module": "chiyu_kernel.mcp"
+        },
+        {
+          "name": "McpBridge",
+          "kind": "class",
+          "signature": "(transport: 'McpTransport', server_name: 'str') -> 'None'",
+          "module": "chiyu_kernel.mcp"
+        },
+        {
+          "name": "normalize_mcp_name",
+          "kind": "function",
+          "signature": "(server_name: 'str', raw_name: 'str') -> 'str'",
+          "module": "chiyu_kernel.mcp"
+        },
+        {
+          "name": "HookBus",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.hooks"
+        },
+        {
+          "name": "HookResult",
+          "kind": "class",
+          "signature": "(point: 'str', handler_id: 'str', decision: 'str', output: 'Optional[str]' = None, duration_ms: 'int' = 0) -> None",
+          "module": "chiyu_kernel.hooks"
+        },
+        {
+          "name": "matches",
+          "kind": "function",
+          "signature": "(matcher: 'Optional[str]', query: 'str', mode: 'str' = 'claude-code') -> 'bool'",
+          "module": "chiyu_kernel.hooks"
+        },
+        {
+          "name": "ApprovalGate",
+          "kind": "class",
+          "signature": "(registry: 'ToolRegistry') -> 'None'",
+          "module": "chiyu_kernel.interaction"
+        },
+        {
+          "name": "ApprovalRequest",
+          "kind": "class",
+          "signature": "(id: 'str', action: 'str', summary: 'str', status: 'str' = 'pending') -> None",
+          "module": "chiyu_kernel.interaction"
+        },
+        {
+          "name": "WORKFLOW_STEP_STATES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "WorkflowRunId",
+          "kind": "callable",
+          "signature": "(x, /)",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowPhase",
+          "kind": "class",
+          "signature": "(title: 'str', detail: 'Optional[str]' = None, provider: 'Optional[str]' = None, model: 'Optional[str]' = None) -> None",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowMeta",
+          "kind": "class",
+          "signature": "(name: 'str', description: 'str', when_to_use: 'Optional[str]' = None, phases: 'list[WorkflowPhase]' = <factory>, max_concurrency: 'Optional[int]' = None) -> None",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowStep",
+          "kind": "class",
+          "signature": "(name: 'str', prompt: 'str', depends_on: 'list[str]' = <factory>, status: 'str' = 'pending') -> None",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowResult",
+          "kind": "class",
+          "signature": "(value: 'Any' = None, stop_reason: 'str' = 'completed', agents_started: 'int' = 0, error: 'Optional[str]' = None) -> None",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowStopReason",
+          "kind": "callable",
+          "signature": "(*args, **kwargs)",
+          "module": "typing"
+        },
+        {
+          "name": "WorkflowError",
+          "kind": "class",
+          "signature": "(message: 'str', code: 'str', fatal: 'bool' = True) -> 'None'",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "is_fatal_workflow_error",
+          "kind": "function",
+          "signature": "(error: 'object') -> 'bool'",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowStateError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "Workflow",
+          "kind": "class",
+          "signature": "(meta: 'WorkflowMeta', steps: 'list[WorkflowStep]') -> 'None'",
+          "module": "chiyu_kernel.workflow"
+        },
+        {
+          "name": "WorkflowRunner",
+          "kind": "class",
+          "signature": "(pool: 'SubagentPool', *, grace_ms: 'int' = 5000) -> 'None'",
+          "module": "chiyu_kernel.workflow.runner"
+        },
+        {
+          "name": "register_workflow_tools",
+          "kind": "function",
+          "signature": "(registry: 'ToolRegistry', pool) -> 'None'",
+          "module": "chiyu_kernel.workflow.register"
+        },
+        {
+          "name": "WorkerRun",
+          "kind": "class",
+          "signature": "(pool, init: 'Dict[str, Any]', *, dispose_grace_ms: 'int' = 5000, spawn: 'Optional[Callable]' = None) -> 'None'",
+          "module": "chiyu_kernel.workflow.host"
+        },
+        {
+          "name": "LEVEL_IDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ScenarioPack",
+          "kind": "class",
+          "signature": "(id: 'str', name: 'str', level: 'str', direction: 'str', mode: 'str', plugins: 'Tuple[str, ...]' = (), workflow_steps: 'Tuple[ScenarioStep, ...]' = (), knowledge_needs: 'Tuple[Dict[str, Any], ...]' = (), controlled_edges: 'Tuple[Dict[str, Any], ...]' = (), locked_by: 'Optional[str]' = None) -> None",
+          "module": "chiyu_kernel.scenario.model"
+        },
+        {
+          "name": "ScenarioPackError",
+          "kind": "class",
+          "signature": "(message: 'str', code: 'str') -> 'None'",
+          "module": "chiyu_kernel.scenario.model"
+        },
+        {
+          "name": "ScenarioStep",
+          "kind": "class",
+          "signature": "(name: 'str', prompt: 'str', depends_on: 'Tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.scenario.model"
+        },
+        {
+          "name": "scenario_from_dict",
+          "kind": "function",
+          "signature": "(data: 'Mapping[str, Any]', *, plugin_registry: 'Any' = None) -> 'ScenarioPack'",
+          "module": "chiyu_kernel.scenario.model"
+        },
+        {
+          "name": "ScenarioPackStore",
+          "kind": "class",
+          "signature": "(directory: 'str | os.PathLike[str]') -> 'None'",
+          "module": "chiyu_kernel.scenario.store"
+        },
+        {
+          "name": "ScenarioPackLockDenied",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.scenario.mcp"
+        },
+        {
+          "name": "scenario_build_in_memory_server",
+          "kind": "function",
+          "signature": "(store: 'ScenarioPackStore') -> 'InMemoryMcpServer'",
+          "module": "chiyu_kernel.scenario.mcp"
+        },
+        {
+          "name": "ScenarioRegistryError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "DecisionScenarioProfile",
+          "kind": "class",
+          "signature": "(key: 'str', title: 'str', description: 'str' = '', version: 'str' = '0.1.0', rubric: 'str' = '', redline: 'str' = '', inputs: 'Tuple[DecisionIOField, ...]' = (), outputs: 'Tuple[DecisionIOField, ...]' = (), required_gates: 'Tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "register_scenario",
+          "kind": "function",
+          "signature": "(key: 'str', *, title: 'str', description: 'str' = '', version: 'str' = '0.1.0', rubric: 'str' = '', redline: 'str' = '', inputs: 'Iterable[DecisionIOField]' = (), outputs: 'Iterable[DecisionIOField]' = (), required_gates: 'Iterable[str]' = ()) -> 'DecisionScenarioProfile'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "DecisionIOField",
+          "kind": "class",
+          "signature": "(name: 'str', kind: 'str', required: 'bool' = True, description: 'str' = '') -> None",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "IO_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GATE_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "get_scenario",
+          "kind": "function",
+          "signature": "(key: 'str') -> 'Optional[DecisionScenarioProfile]'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "require_scenario",
+          "kind": "function",
+          "signature": "(key: 'str') -> 'DecisionScenarioProfile'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "list_scenarios",
+          "kind": "function",
+          "signature": "() -> 'List[DecisionScenarioProfile]'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "is_registered",
+          "kind": "function",
+          "signature": "(key: 'str') -> 'bool'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "clear_registry",
+          "kind": "function",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "set_key_format",
+          "kind": "function",
+          "signature": "(mode: 'str') -> 'None'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "key_format",
+          "kind": "function",
+          "signature": "() -> 'str'",
+          "module": "chiyu_kernel.scenario.registry"
+        },
+        {
+          "name": "DomainBundle",
+          "kind": "class",
+          "signature": "(profile: 'TenantProfile', actions: 'ActionRegistry', scenarios: 'Tuple[ScenarioPack, ...]') -> None",
+          "module": "chiyu_kernel.domain"
+        },
+        {
+          "name": "DomainInjectionError",
+          "kind": "class",
+          "signature": "(message: 'str', errors: 'Sequence[str]') -> 'None'",
+          "module": "chiyu_kernel.domain"
+        },
+        {
+          "name": "profile_from_dict",
+          "kind": "function",
+          "signature": "(d: 'Mapping[str, Any]') -> 'TenantProfile'",
+          "module": "chiyu_kernel.domain"
+        },
+        {
+          "name": "inject_domain",
+          "kind": "function",
+          "signature": "(*, profile: 'Mapping[str, Any]', actions: 'Sequence[Mapping[str, Any]]' = (), scenarios: 'Sequence[Mapping[str, Any]]' = (), plugin_registry: 'Any' = None) -> 'DomainBundle'",
+          "module": "chiyu_kernel.domain"
+        },
+        {
+          "name": "EVENT_TYPE_DECISION",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DecisionRecord",
+          "kind": "class",
+          "signature": "(decision_id: 'str', confidence: 'float', redline_hit: 'bool', redline_reasons: 'Tuple[str, ...]' = (), autonomous: 'bool' = False, rubric_missing: 'Tuple[str, ...]' = (), elements_missing: 'Tuple[str, ...]' = (), concept_refs: 'Tuple[str, ...]' = (), disposition: 'str' = 'auto', policy_version: 'str' = '', tenant_id: 'str' = '', subject_id: 'str' = '', occurred_at: 'Any' = None) -> None",
+          "module": "chiyu_kernel.persist"
+        },
+        {
+          "name": "judge_worthiness",
+          "kind": "function",
+          "signature": "(record: 'DecisionRecord', *, value_horizon_days: 'int' = 30, transient: 'bool' = False) -> 'Tuple[bool, str]'",
+          "module": "chiyu_kernel.persist"
+        },
+        {
+          "name": "write_decision_memory_net",
+          "kind": "function",
+          "signature": "(decision_id: 'str', *, references: 'Mapping[str, Sequence[str]]', profile: 'TenantProfile', write_edge: 'Callable[..., None]', record: 'Optional[DecisionRecord]' = None, judge: 'Callable[[DecisionRecord], Tuple[bool, str]]' = <function judge_worthiness at 0x000002B220F4B240>) -> 'int'",
+          "module": "chiyu_kernel.persist"
+        },
+        {
+          "name": "PgVectorStorePersister",
+          "kind": "class",
+          "signature": "(store: 'Any', profile: 'TenantProfile', *, onto: 'Optional[OntologyGraph]' = None, event_bus: 'Any' = None, materialize: 'bool' = True) -> 'None'",
+          "module": "chiyu_kernel.persist"
+        },
+        {
+          "name": "DistillReport",
+          "kind": "class",
+          "signature": "(promoted: 'int', explicit_promoted: 'int', dropped_horizon: 'int', skipped_idempotent: 'int', details: 'Tuple[str, ...]' = <factory>) -> None",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "InMemoryMemoryLog",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "InMemoryNoteStore",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "MemoryLogEntry",
+          "kind": "class",
+          "signature": "(entry_id: 'str', kind: 'str', payload: 'Mapping[str, Any]', created_at: 'str', source_decision_id: 'str' = '', transient: 'bool' = False, explicit: 'bool' = False) -> None",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "MemoryLogStore",
+          "kind": "class",
+          "signature": "(*args, **kwargs)",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "MemoryNote",
+          "kind": "class",
+          "signature": "(key: 'str', content: 'str', content_hash: 'str', horizon_days: 'int' = 30, explicit: 'bool' = False, updated_at: 'str' = '', source_entry_ids: 'Tuple[str, ...]' = ()) -> None",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "NoteStore",
+          "kind": "class",
+          "signature": "(*args, **kwargs)",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "PRESCRIBABLE_PREDICATES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "distill",
+          "kind": "function",
+          "signature": "(log: 'MemoryLogStore', notes: 'NoteStore', *, now: 'datetime', value_horizon_days: 'int' = 30) -> 'DistillReport'",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "is_prescribable",
+          "kind": "function",
+          "signature": "(predicate: 'str') -> 'bool'",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "note_hash",
+          "kind": "function",
+          "signature": "(key: 'str', content: 'str') -> 'str'",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "parse_ts",
+          "kind": "function",
+          "signature": "(value: 'str') -> 'datetime'",
+          "module": "chiyu_kernel.persist.memory_tracks"
+        },
+        {
+          "name": "EVENT_TYPE_MEMORY_LOG",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PgMemoryLogStore",
+          "kind": "class",
+          "signature": "(store: 'Any', profile: 'TenantProfile') -> 'None'",
+          "module": "chiyu_kernel.persist.pg_memory_stores"
+        },
+        {
+          "name": "PgNoteStore",
+          "kind": "class",
+          "signature": "(store: 'Any', profile: 'TenantProfile', *, note_type: 'str' = 'memory', layer: 'str' = 'L2') -> 'None'",
+          "module": "chiyu_kernel.persist.pg_memory_stores"
+        },
+        {
+          "name": "NOTE_ATTR_CONTENT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "NOTE_ATTR_CONTENT_HASH",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "NOTE_ATTR_EXPLICIT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "NOTE_ATTR_HORIZON_DAYS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "NOTE_ATTR_SOURCE_ENTRY_IDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "EdgeWrite",
+          "kind": "class",
+          "signature": "(from_id: 'str', to_id: 'str', predicate: 'str', layer: 'str' = 'M', serves_dims: 'Sequence[str]' = (), edge_source: 'str' = 'engine', evidence_ref: 'Optional[str]' = None, valid_from: 'Any' = None, valid_until: 'Any' = None, weight: 'Optional[float]' = None, confidence: 'Optional[float]' = None) -> None",
+          "module": "chiyu_kernel.persist.graph_edges"
+        },
+        {
+          "name": "EdgeWriteReport",
+          "kind": "class",
+          "signature": "(written: 'int', skipped: 'Tuple[Tuple[str, str, str, str], ...]' = ()) -> None",
+          "module": "chiyu_kernel.persist.graph_edges"
+        },
+        {
+          "name": "write_controlled_edges",
+          "kind": "function",
+          "signature": "(store: 'Any', edges: 'Sequence[EdgeWrite]', *, profile: 'Any', strict: 'bool' = True) -> 'EdgeWriteReport'",
+          "module": "chiyu_kernel.persist.graph_edges"
+        },
+        {
+          "name": "DECISION_TIME_BASIS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MAX_TRAVERSAL_HOPS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIMELINE_SOURCES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GraphEdge",
+          "kind": "class",
+          "signature": "(from_id: 'str', to_id: 'str', predicate: 'str', layer: 'str' = 'M', weight: 'Optional[float]' = None, relation_confidence: 'Optional[float]' = None, edge_source: 'str' = 'engine', ts: 'Any' = None) -> None",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "TraversalResult",
+          "kind": "class",
+          "signature": "(root: 'str', nodes: 'Tuple[str, ...]' = (), edges: 'Tuple[GraphEdge, ...]' = (), paths: 'Tuple[Tuple[str, ...], ...]' = (), truncated: 'bool' = False) -> None",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "GraphStore",
+          "kind": "class",
+          "signature": "()",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "InMemoryGraphStore",
+          "kind": "class",
+          "signature": "(predicates: 'Iterable[str]', edges: 'Iterable[GraphEdge]' = ()) -> 'None'",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "PgCteGraphStore",
+          "kind": "class",
+          "signature": "(store: 'Any', predicates: 'Iterable[str]') -> 'None'",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "relation_view",
+          "kind": "function",
+          "signature": "(store: 'GraphStore', root: 'str', *, predicates: 'Optional[Iterable[str]]' = None, max_hops: 'int' = 2, direction: 'str' = 'out') -> 'dict'",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "timeline_view",
+          "kind": "function",
+          "signature": "(*, particles: 'Iterable[Mapping[str, Any]]' = (), edges: 'Iterable[Mapping[str, Any]]' = (), events: 'Iterable[Mapping[str, Any]]' = (), decisions: 'Iterable[Mapping[str, Any]]' = (), subject_id: 'Optional[str]' = None, limit: 'int' = 200) -> 'list'",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "decision_backlinks",
+          "kind": "function",
+          "signature": "(store: 'GraphStore', decision_id: 'str', *, reference_predicate: 'str' = 'REFERENCED_PRECEDENT', override_predicate: 'str' = 'OVERRIDES', exception_predicate: 'str' = 'DERIVED_FROM_EXCEPTION') -> 'dict'",
+          "module": "chiyu_kernel.graph"
+        },
+        {
+          "name": "WRITE_CONTROLLED_EDGES_TOOL",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "build_graph_write_server",
+          "kind": "function",
+          "signature": "(store: 'Any', *, profile: 'Any' = None, auth: 'Optional[Any]' = None, secret: 'Optional[str]' = None) -> 'McpServer'",
+          "module": "chiyu_kernel.graph.mcp"
+        },
+        {
+          "name": "make_graph_write_profile",
+          "kind": "function",
+          "signature": "(domain: 'str') -> 'TenantProfile'",
+          "module": "chiyu_kernel.graph.mcp"
+        },
+        {
+          "name": "open_graph_write_store",
+          "kind": "function",
+          "signature": "(domain: 'str', *, schema: 'str' = 'graph') -> 'Any'",
+          "module": "chiyu_kernel.graph.mcp"
+        },
+        {
+          "name": "RISKS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "McpServerError",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "ToolNotExposed",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "AuthDenied",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "ConfirmRequired",
+          "kind": "class",
+          "signature": "(token: 'str', summary: 'str' = '') -> 'None'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "ConfirmTokenInvalid",
+          "kind": "class",
+          "signature": "n/a",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "ExposedTool",
+          "kind": "class",
+          "signature": "(name: 'str', description: 'str', risk: 'str', scope: 'str') -> None",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "canonical_args",
+          "kind": "function",
+          "signature": "(args: 'Any') -> 'str'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "issue_confirm_token",
+          "kind": "function",
+          "signature": "(secret: 'str', name: 'str', args: 'Any', principal: 'str' = '') -> 'str'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "verify_confirm_token",
+          "kind": "function",
+          "signature": "(secret: 'str', name: 'str', args: 'Any', principal: 'str', token: 'str') -> 'bool'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "McpServer",
+          "kind": "class",
+          "signature": "(*, auth: 'Optional[Callable[[Mapping[str, Any]], bool]]' = None, secret: 'Optional[str]' = None) -> 'None'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "StdioTransport",
+          "kind": "class",
+          "signature": "(server: 'McpServer', *, ctx: 'Optional[Mapping[str, Any]]' = None) -> 'None'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "allow_principals",
+          "kind": "function",
+          "signature": "(*names: 'str') -> 'Callable[[Mapping[str, Any]], bool]'",
+          "module": "chiyu_kernel.mcpserver"
+        },
+        {
+          "name": "CanaryReport",
+          "kind": "class",
+          "signature": "(decision_persisted: 'bool', memory_net_materialized: 'bool', redline_blocked: 'bool', details: 'Mapping[str, Any]' = <factory>) -> None",
+          "module": "chiyu_kernel.canary"
+        },
+        {
+          "name": "canary_probe",
+          "kind": "function",
+          "signature": "(*, store: 'Any', run_decision: 'Callable[[], Any]', decision_id: 'str' = 'canary-dec-1', references: 'Optional[Mapping[str, Sequence[str]]]' = None, run_redline_decision: 'Optional[Callable[[], Any]]' = None) -> 'CanaryReport'",
+          "module": "chiyu_kernel.canary"
+        },
+        {
+          "name": "DecisionVerdictState",
+          "kind": "class",
+          "signature": "(value, names=None, *, module=None, qualname=None, type=None, start=1, boundary=None)",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionApprovalGate",
+          "kind": "class",
+          "signature": "(*args, **kwargs)",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionApprovalVerdict",
+          "kind": "class",
+          "signature": "(state: 'DecisionVerdictState' = <DecisionVerdictState.APPROVED: 'approved'>, reason: 'str' = '', requires_human: 'bool' = False) -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "RedlinePriorityGate",
+          "kind": "class",
+          "signature": "() -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionPassThroughGate",
+          "kind": "class",
+          "signature": "() -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "register_native_tools",
+          "kind": "function",
+          "signature": "(reg: 'ToolRegistry', *, profile) -> 'None'",
+          "module": "chiyu_kernel.harness_native_tools"
+        },
+        {
+          "name": "native_redline_guard",
+          "kind": "function",
+          "signature": "(*, profile) -> 'Callable[[str, Any], Optional[str]]'",
+          "module": "chiyu_kernel.harness_native_tools"
+        },
+        {
+          "name": "PluginSpec",
+          "kind": "class",
+          "signature": "(name: 'str', capability: 'str', description: 'str' = '', author: 'str' = 'builtin', particle_types: 'Tuple[str, ...]' = <factory>, actions: 'Tuple[str, ...]' = <factory>, page_types: 'Tuple[str, ...]' = <factory>, tools: 'Tuple[str, ...]' = <factory>, orchestration_hooks: 'Tuple[str, ...]' = <factory>, input_adapters: 'Tuple[str, ...]' = <factory>) -> None",
+          "module": "chiyu_kernel.plugins.contract"
+        },
+        {
+          "name": "PluginRegistry",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_kernel.plugins.contract"
+        },
+        {
+          "name": "BUILTIN_PLUGINS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "register_builtins",
+          "kind": "function",
+          "signature": "(registry: 'PluginRegistry') -> 'None'",
+          "module": "chiyu_kernel.plugins.builtins"
+        },
+        {
+          "name": "WorkMode",
+          "kind": "class",
+          "signature": "(id: 'str', label: 'str', description: 'str', plugins: 'Tuple[str, ...]' = <factory>, orchestration: 'Dict[str, object]' = <factory>, llm_backend: 'str' = 'deterministic', phase_b_backend: 'Optional[str]' = None, default: 'bool' = False) -> None",
+          "module": "chiyu_kernel.plugins.modes"
+        },
+        {
+          "name": "MODE_PRESETS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DEFAULT_MODE_ID",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "mode_ids",
+          "kind": "function",
+          "signature": "() -> 'Tuple[str, ...]'",
+          "module": "chiyu_kernel.plugins.modes"
+        },
+        {
+          "name": "active_plugins",
+          "kind": "function",
+          "signature": "(mode: 'WorkMode', registry: 'object' = None) -> 'Tuple[str, ...]'",
+          "module": "chiyu_kernel.plugins.modes"
+        },
+        {
+          "name": "disabled_plugins",
+          "kind": "function",
+          "signature": "(mode: 'WorkMode', registry: 'object' = None) -> 'Tuple[str, ...]'",
+          "module": "chiyu_kernel.plugins.modes"
+        },
+        {
+          "name": "resolve_work_mode",
+          "kind": "function",
+          "signature": "(mode_id: 'Optional[str]', registry: 'object' = None) -> 'Tuple[WorkMode, Tuple[str, ...], Tuple[str, ...], List[str]]'",
+          "module": "chiyu_kernel.plugins.modes"
+        },
+        {
+          "name": "MEMORY_EXPERIMENTAL",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "API_VERSION",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CONTRACT_VERSION",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CAPABILITIES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DEPRECATIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VALID_STATUSES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "api_version",
+          "kind": "function",
+          "signature": "() -> 'str'",
+          "module": "chiyu_kernel.version"
+        },
+        {
+          "name": "capabilities",
+          "kind": "function",
+          "signature": "() -> 'Tuple[Tuple[str, str], ...]'",
+          "module": "chiyu_kernel.version"
+        },
+        {
+          "name": "capability_status",
+          "kind": "function",
+          "signature": "(name: 'str') -> 'str'",
+          "module": "chiyu_kernel.version"
+        },
+        {
+          "name": "require_capabilities",
+          "kind": "function",
+          "signature": "(required: 'Mapping[str, str]') -> 'None'",
+          "module": "chiyu_kernel.version"
+        },
+        {
+          "name": "contract_version",
+          "kind": "function",
+          "signature": "() -> 'str'",
+          "module": "chiyu_kernel.version"
+        },
+        {
+          "name": "deprecations",
+          "kind": "function",
+          "signature": "() -> 'Dict[str, str]'",
+          "module": "chiyu_kernel.version"
+        },
+        {
+          "name": "__version__",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PACKAGE_VERSION",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        }
+      ]
+    },
+    "chiyu_kernel.contract": {
+      "count": 72,
+      "symbols": [
+        {
+          "name": "AUDIT_GENESIS_HASH",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_HASH_ALGO",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_REQUIRED_FIELDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PROBE_ASSERTIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_APPROVAL_EVENTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_EVENT_APPROVAL_PENDING",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_EVENT_APPROVAL_REJECTED",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_EVENT_APPROVAL_RESUMED",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUDIT_RECORD_KIND",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUTONOMOUS_GATE_EXPR",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AUTONOMOUS_RELEASE_DEFAULT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CONFIDENCE_SOURCE_KEY",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ELEMENT_MISSING_CAP",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ELEMENT_RUBRIC_CAPS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "EIGHT_ELEMENTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "EIGHT_ELEMENTS_ZH",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RUBRIC_KEYS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RUBRIC_LLM_ELIGIBLE",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RUBRIC_NAMES_ZH",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RUBRIC_SCALE_MAX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RUBRIC_THRESHOLDS_DEFAULT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SEVEN_DIM_KEYS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SEVEN_DIMS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SPINE_ORDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "SPINE_STAGE_LABELS_ZH",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "validate_spine_order",
+          "kind": "function",
+          "signature": "(order: 'Tuple[str, ...]') -> 'None'",
+          "module": "chiyu_kernel.contract.decision"
+        },
+        {
+          "name": "EVOLUTION_OBJECTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RISK_TIERS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_AUTO",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_GUARDED",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "TIER_FORBIDDEN",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DIRECTIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DIR_WIDEN",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DIR_TIGHTEN",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DIR_FLAT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PRESCRIPTION_STATES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PRESCRIPTION_TERMINAL",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PRESCRIPTION_TRANSITIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "META_REDLINES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "BASELINE_SKILL_PREFIX",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VERDICT_PASS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VERDICT_REJECT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VERDICTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "FAIL_SAFE_VERDICT",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PRESCRIPTION_AUDIT_FIELDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "BUSINESS_CLOCK_FIELD",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MEMORY_ADDRESS_KEYS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MEMORY_DEFAULTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MEMORY_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PROVENANCE_SOURCES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RECORD_CLOCK_FIELD",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ATTR_SOURCES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ATTR_TYPES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CARDINALITIES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "CORE_ROLES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "EDGE_LAYERS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "EDGE_SOURCES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "HASH_DIM",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "LAYERS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "MEMORY_PREDICATES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "ParticleTypeSet",
+          "kind": "class",
+          "signature": "(names: 'Tuple[str, ...]') -> None",
+          "module": "chiyu_kernel.contract.particle"
+        },
+        {
+          "name": "PredicateSet",
+          "kind": "class",
+          "signature": "(knowledge: 'Tuple[PredicateSpec, ...]' = (), memory: 'Tuple[PredicateSpec, ...]' = (PredicateSpec(predicate='DECIDED_ON', from_type='decision', to_type=None, cardinality=None, source='engine', layer='M'), PredicateSpec(predicate='REFERENCED_PRECEDENT', from_type='decision', to_type=None, cardinality=None, source='engine', layer='M'), PredicateSpec(predicate='DERIVED_FROM_EXCEPTION', from_type='decision', to_type='knowledge', cardinality=None, source='engine', layer='M'), PredicateSpec(predicate='ESTABLISHES_FRAME', from_type='decision', to_type=None, cardinality=None, source='engine', layer='M'), PredicateSpec(predicate='OVERRIDES', from_type='decision', to_type='decision', cardinality=None, source='engine', layer='M'), PredicateSpec(predicate='CAUSED', from_type='decision', to_type=None, cardinality=None, source='engine', layer='M'), PredicateSpec(predicate='INFLUENCED', from_type='decision', to_type='decision', cardinality=None, source='engine', layer='M'))) -> None",
+          "module": "chiyu_kernel.contract.particle"
+        },
+        {
+          "name": "PredicateSpec",
+          "kind": "class",
+          "signature": "(predicate: 'str', from_type: 'str', to_type: 'str | None', cardinality: 'str | None' = None, source: 'str' = 'rule', layer: 'str' = 'K') -> None",
+          "module": "chiyu_kernel.contract.particle"
+        },
+        {
+          "name": "VALUE_SLOTS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "VECTOR_DIM",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "RedlineSpec",
+          "kind": "class",
+          "signature": "(mutex_top: 'frozenset' = <factory>, sensitive: 'frozenset' = <factory>) -> None",
+          "module": "chiyu_kernel.contract.profile"
+        },
+        {
+          "name": "TenantProfile",
+          "kind": "class",
+          "signature": "(domain: 'str', particle_types: 'ParticleTypeSet', predicates: 'PredicateSet' = <factory>, redline: 'RedlineSpec' = <factory>, rubric_thresholds: 'Mapping[str, float]' = <factory>, autonomous_threshold: 'float' = 0.79, extras: 'Mapping[str, Any]' = <factory>) -> None",
+          "module": "chiyu_kernel.contract.profile"
+        },
+        {
+          "name": "DecisionVerdictState",
+          "kind": "class",
+          "signature": "(value, names=None, *, module=None, qualname=None, type=None, start=1, boundary=None)",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionApprovalGate",
+          "kind": "class",
+          "signature": "(*args, **kwargs)",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionApprovalVerdict",
+          "kind": "class",
+          "signature": "(state: 'DecisionVerdictState' = <DecisionVerdictState.APPROVED: 'approved'>, reason: 'str' = '', requires_human: 'bool' = False) -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "RedlinePriorityGate",
+          "kind": "class",
+          "signature": "() -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionPassThroughGate",
+          "kind": "class",
+          "signature": "() -> None",
+          "module": "chiyu_kernel.approval"
+        }
+      ]
+    },
+    "chiyu_kernel.approval": {
+      "count": 5,
+      "symbols": [
+        {
+          "name": "DecisionVerdictState",
+          "kind": "class",
+          "signature": "(value, names=None, *, module=None, qualname=None, type=None, start=1, boundary=None)",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionApprovalVerdict",
+          "kind": "class",
+          "signature": "(state: 'DecisionVerdictState' = <DecisionVerdictState.APPROVED: 'approved'>, reason: 'str' = '', requires_human: 'bool' = False) -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionApprovalGate",
+          "kind": "class",
+          "signature": "(*args, **kwargs)",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "RedlinePriorityGate",
+          "kind": "class",
+          "signature": "() -> None",
+          "module": "chiyu_kernel.approval"
+        },
+        {
+          "name": "DecisionPassThroughGate",
+          "kind": "class",
+          "signature": "() -> None",
+          "module": "chiyu_kernel.approval"
+        }
+      ]
+    },
+    "chiyu_decision.api": {
+      "count": 15,
+      "symbols": [
+        {
+          "name": "SPINE_ORDER",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "validate_spine_order",
+          "kind": "function",
+          "signature": "(order: 'Tuple[str, ...]') -> 'None'",
+          "module": "chiyu_kernel.contract.decision"
+        },
+        {
+          "name": "run_spine",
+          "kind": "function",
+          "signature": "(*, context: 'Mapping', profile, rubric_scores: 'Mapping[str, float]', elements: 'Mapping[str, object]', persister: 'Optional[Callable[[SpineResult], object]]' = None, approval_gate: 'Optional[DecisionApprovalGate]' = None, audit_sink: 'Optional[Callable[[str, Mapping], None]]' = None, audit_persister: 'Optional[Callable[[SpineResult, str, Mapping], object]]' = None, threshold: 'float' = 0.79, redline_items: 'Tuple[str, ...]' = (), redline_callback: 'Optional[Callable[..., RedlineVerdict]]' = None, redline_spec: 'Optional[RedlineSpec]' = None, element_cap: 'bool' = False, context_factory: 'Optional[Callable[[Mapping], Mapping]]' = None, memory_recaller: 'Optional[Callable[[Mapping], Mapping]]' = None) -> 'SpineResult'",
+          "module": "chiyu_decision.spine"
+        },
+        {
+          "name": "resume_spine",
+          "kind": "function",
+          "signature": "(result: 'SpineResult', *, persister: 'Optional[Callable[[SpineResult], object]]' = None, audit_sink: 'Optional[Callable[[str, Mapping], None]]' = None, approval_ref: 'str' = '') -> 'SpineResult'",
+          "module": "chiyu_decision.spine"
+        },
+        {
+          "name": "SpineResult",
+          "kind": "class",
+          "signature": "(decision_id: 'str', stage_reached: 'str', confidence: 'float', rubric_missing: 'Tuple[str, ...]', elements_missing: 'Tuple[str, ...]', redline_hit: 'bool', redline_reasons: 'Tuple[str, ...]', autonomous: 'bool', persisted: 'bool' = False, approval_rejected: 'Optional[str]' = None, pending: 'bool' = False, sensitive_hits: 'Tuple[str, ...]' = (), pending_reason: 'Optional[str]' = None, pending_requires_human: 'bool' = False) -> None",
+          "module": "chiyu_decision.spine"
+        },
+        {
+          "name": "score_rubric",
+          "kind": "function",
+          "signature": "(scores: 'Mapping[str, float]') -> 'RubricReport'",
+          "module": "chiyu_decision.scoring"
+        },
+        {
+          "name": "RubricReport",
+          "kind": "class",
+          "signature": "(scores: 'Mapping[str, float]', ratio: 'float', missing: 'Tuple[str, ...]') -> None",
+          "module": "chiyu_decision.scoring"
+        },
+        {
+          "name": "check_elements",
+          "kind": "function",
+          "signature": "(elements: 'Mapping[str, object]') -> 'ElementReport'",
+          "module": "chiyu_decision.scoring"
+        },
+        {
+          "name": "evaluate_redline",
+          "kind": "function",
+          "signature": "(*, context: 'Mapping', redline_items: 'Collection[str]') -> 'RedlineVerdict'",
+          "module": "chiyu_decision.redline"
+        },
+        {
+          "name": "cap_rubric_by_elements",
+          "kind": "function",
+          "signature": "(scores: 'Mapping[str, float]', elements_missing: 'Sequence[str]', *, cap: 'int' = 2, mapping: 'Mapping[str, Sequence[str]]' = {'intent': ('relevance',), 'assumptions': ('accuracy',), 'inference': ('logic',), 'viewpoints': ('breadth',), 'impact': ('importance',), 'risk_register': ('depth',), 'stop_loss': ('depth',), 'concept_refs': ('precision',)}) -> 'Dict[str, float]'",
+          "module": "chiyu_decision.scoring"
+        },
+        {
+          "name": "RedlineVerdict",
+          "kind": "class",
+          "signature": "(hit: 'bool', reasons: 'Tuple[str, ...]') -> None",
+          "module": "chiyu_decision.redline"
+        },
+        {
+          "name": "autonomous_release",
+          "kind": "function",
+          "signature": "(*, redline_hit: 'bool', confidence: 'float', threshold: 'float' = 0.79) -> 'bool'",
+          "module": "chiyu_decision.redline"
+        },
+        {
+          "name": "aggregate_confidence",
+          "kind": "function",
+          "signature": "(report: 'RubricReport', *, source_key: 'str' = 'ratio') -> 'float'",
+          "module": "chiyu_decision.scoring"
+        },
+        {
+          "name": "DecisionError",
+          "kind": "class",
+          "signature": "(code: 'str', message: 'str') -> 'None'",
+          "module": "chiyu_decision.errors"
+        },
+        {
+          "name": "DECISION_ERROR_CODES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        }
+      ]
+    },
+    "chiyu_portal.api": {
+      "count": 26,
+      "symbols": [
+        {
+          "name": "SCHEMA_VERSION",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "PAGE_TYPES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "COMPONENT_KINDS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "THEMES",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "FILTER_OPS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "AGG_FUNCS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "DEFAULT_ALLOWED_ACTIONS",
+          "kind": "value",
+          "signature": "n/a",
+          "module": "?"
+        },
+        {
+          "name": "GuardResult",
+          "kind": "class",
+          "signature": "(ok: 'bool', reason: 'str' = '') -> None",
+          "module": "chiyu_portal.guardrails"
+        },
+        {
+          "name": "guard_nl_input",
+          "kind": "function",
+          "signature": "(text: 'str') -> 'GuardResult'",
+          "module": "chiyu_portal.guardrails"
+        },
+        {
+          "name": "ParseResult",
+          "kind": "class",
+          "signature": "(schema: 'dict[str, Any]', confidence: 'float', needs_clarification: 'bool', notes: 'list[str]' = <factory>) -> None",
+          "module": "chiyu_portal.nl_parser"
+        },
+        {
+          "name": "parse_nl_to_schema",
+          "kind": "function",
+          "signature": "(text: 'str', *, entity_map: 'dict[str, str] | None' = None, title: 'str | None' = None) -> 'ParseResult'",
+          "module": "chiyu_portal.nl_parser"
+        },
+        {
+          "name": "RenderResult",
+          "kind": "class",
+          "signature": "(ok: 'bool', html: 'str' = '', errors: 'tuple[ValidationError, ...]' = ()) -> None",
+          "module": "chiyu_portal.renderer"
+        },
+        {
+          "name": "render_page",
+          "kind": "function",
+          "signature": "(schema: 'dict[str, Any]', *, particle_types: 'Any', allowed_actions: 'Iterable[str] | None' = None, status_fields: 'Iterable[str]' = (), snapshot_fields: 'Iterable[str]' = ()) -> 'RenderResult'",
+          "module": "chiyu_portal.renderer"
+        },
+        {
+          "name": "render_conversation",
+          "kind": "function",
+          "signature": "(*, events: 'Any' = None, composer_action: 'str' = 'send_message', goal: 'str' = '') -> \"'RenderResult'\"",
+          "module": "chiyu_portal.renderer"
+        },
+        {
+          "name": "ValidationError",
+          "kind": "class",
+          "signature": "(path: 'str', message: 'str') -> None",
+          "module": "chiyu_portal.schema"
+        },
+        {
+          "name": "validate_page_schema",
+          "kind": "function",
+          "signature": "(schema: 'dict[str, Any]', *, particle_types: 'ParticleTypeSet', allowed_actions: 'Iterable[str] | None' = None, status_fields: 'Iterable[str]' = (), snapshot_fields: 'Iterable[str]' = ()) -> 'tuple[ValidationError, ...]'",
+          "module": "chiyu_portal.schema"
+        },
+        {
+          "name": "CreateResult",
+          "kind": "class",
+          "signature": "(ok: 'bool', draft: 'PageDraft | None' = None, errors: 'tuple[ValidationError, ...]' = (), guard_reason: 'str' = '') -> None",
+          "module": "chiyu_portal.page_store"
+        },
+        {
+          "name": "PageDraft",
+          "kind": "class",
+          "signature": "(draft_id: 'str', schema: 'dict[str, Any]', confidence: 'float', needs_clarification: 'bool', notes: 'list[str]' = <factory>, published: 'bool' = False) -> None",
+          "module": "chiyu_portal.page_store"
+        },
+        {
+          "name": "PageStore",
+          "kind": "class",
+          "signature": "() -> 'None'",
+          "module": "chiyu_portal.page_store"
+        },
+        {
+          "name": "onboarding_steps",
+          "kind": "function",
+          "signature": "() -> 'List[Dict[str, str]]'",
+          "module": "chiyu_portal.onboarding"
+        },
+        {
+          "name": "mode_cards",
+          "kind": "function",
+          "signature": "() -> 'List[Dict[str, object]]'",
+          "module": "chiyu_portal.onboarding"
+        },
+        {
+          "name": "level_cards",
+          "kind": "function",
+          "signature": "() -> 'List[Dict[str, object]]'",
+          "module": "chiyu_portal.onboarding"
+        },
+        {
+          "name": "workflow_cards",
+          "kind": "function",
+          "signature": "() -> 'List[Dict[str, object]]'",
+          "module": "chiyu_portal.onboarding"
+        },
+        {
+          "name": "direction_cards",
+          "kind": "function",
+          "signature": "() -> 'List[Dict[str, str]]'",
+          "module": "chiyu_portal.onboarding"
+        },
+        {
+          "name": "render_onboarding",
+          "kind": "function",
+          "signature": "() -> \"'OnboardingResult'\"",
+          "module": "chiyu_portal.onboarding"
+        },
+        {
+          "name": "OnboardingResult",
+          "kind": "class",
+          "signature": "(ok: 'bool', html: 'str', errors: 'Tuple[str, ...]') -> None",
+          "module": "chiyu_portal.onboarding"
+        }
+      ]
+    }
+  }
+}

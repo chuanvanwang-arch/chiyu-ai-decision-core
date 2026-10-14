@@ -1,0 +1,15 @@
+{
+  "_note": "闭环回写落点（brainstorming §B）。机器可读，按 task + gap_type 幂等 upsert；同一 (task, gap_type) 复现 >=2 次时，用 aggregate-feedback.mjs 产出 SKILL 改进提议（仅提议，须显式批准）。聚合命令：node C:/Users/wangchuan08/.workbuddy/skills/brainstorming/scripts/aggregate-feedback.mjs <本文件> --threshold 2",
+  "design_doc": "docs/2026-09-21-决策智能平台概念设计.md",
+  "doc_version": "v1.2",
+  "schema": {
+    "task": "string，须与 contract-yaml 块的 task 字段逐字一致",
+    "agent": "string，契约键注册表 key（foundation-builder | consumer-integrator）",
+    "gap_type": "skill | memory | success",
+    "observed": "实测到的事实（不是推测）",
+    "expected": "契约声明的应然值",
+    "ts": "ISO8601",
+    "severity": "warn | error"
+  },
+  "records": []
+}

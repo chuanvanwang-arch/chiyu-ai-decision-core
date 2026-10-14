@@ -1,0 +1,8 @@
+decision_id   : cli-是否批准该客户的预算追加请求
+stage_reached : S5_persist
+confidence    : 0.75  (阈值 0.79)
+autonomous    : False
+redline_hit   : False 
+尺子缺失      : 无
+要素缺失      : assumptions, inference, viewpoints, impact, risk_register, stop_loss, concept_refs
+工作模式      : standard（启用插件：terminal, loop, subagent, web_search, team）

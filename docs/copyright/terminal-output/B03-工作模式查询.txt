@@ -1,0 +1,20 @@
+ChiYu 工作模式（对标 DeepSeek Harness 桌面版）：
+========================================================
+● creative —— 创造模式
+    Everything is a Plugin：全插件 + voice + 自定义 hook，开放插件注册与模式声明框架。
+    启用插件：terminal, loop, subagent, web_search, team, voice
+    Phase B 后端：deepseek-ai/DeepSeek-V4-Flash
+● minimal —— 极简模式
+    仅终端：隐藏门户与导航，只剩 chiyu shell + 受限对话环；最快上手、最小心智负担。
+    启用插件：terminal
+    惰性关闭：loop, subagent, team, voice, web_search
+● ptc —— PTC 模式
+    先写「小程序/编排脚本」再批量调工具：开启脚本规划槽位，Agent 先生成幂等计划再批量 dispatch。
+    启用插件：terminal, loop, web_search
+    惰性关闭：subagent, team, voice
+    Phase B 后端：deepseek-ai/DeepSeek-V4-Flash
+● standard（默认） —— 标准模式
+    全能力默认编排：6 插件全开 + 确定性决策脊柱；Phase B 接 DeepSeek 走 auto 路径。
+    启用插件：terminal, loop, subagent, web_search, team
+    惰性关闭：voice
+    Phase B 后端：deepseek-ai/DeepSeek-V4-Flash

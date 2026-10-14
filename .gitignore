@@ -1,0 +1,37 @@
+__pycache__/
+*.pyc
+*.pyo
+*.so
+*.pyd
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+*.db
+*.key
+licenses/*.lic
+!licenses/.gitkeep
+
+# 模型产物：大文件不入库（本地用 tools/export_bge_onnx.py 生成）
+# 小体积的 config.json / tokenizer.json / *.parity.json 保留入库（可复现性与对拍台账）
+# ⛔ 必须用 `**` 递归：`models/*.onnx` 的 `*` 不跨目录，匹配不到 `models/<name>/model.onnx`
+models/**/*.onnx
+models/**/*.bin
+models/**/*.safetensors
+models/**/.cache/
+
+# 头脑风暴可视化伴侣产物（非项目代码）
+.superpowers/
+
+# Node 依赖（web/ 前端 demo）：67M，绝不入库
+# ⛔ 必须是 `node_modules/`（带斜杠+通配语义），只写 `node_modules` 匹配不到子路径内容
+node_modules/
+
+# 编辑器缓存与临时产物
+# ⛔ `.cache/` 的写法不跨目录 ⇒ 必须用 `**/` 前缀才能命中 ppt/<名称>/.cache/
+**/.cache/
+**/.slidep/
+**/.tmp_*
+.tmp_*
+*_bak_*.py

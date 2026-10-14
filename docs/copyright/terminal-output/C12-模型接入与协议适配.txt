@@ -1,0 +1,24 @@
+==============================================================================
+  功能演示 12　模型接入与协议适配
+  MCP 传输层契约、工具注册与命名规范化
+==============================================================================
+
+$ normalize_mcp_name(server_name, raw_name)  —— MCP 命名规范化
+    'Run Spine'        -> 'mcp__chiyu-foundation__Run_Spine'
+    'chiyu.decide'     -> 'mcp__chiyu-foundation__chiyu_decide'
+    'render--page'     -> 'mcp__chiyu-foundation__render--page'
+    'A_B_C'            -> 'mcp__chiyu-foundation__A_B_C'
+
+$ 以 InMemoryMcpServer 承载底座能力（传输层可替换为真实 transport）
+  list_tools()          : [('run_spine', '执行六阶段决策脊柱'), ('render_page', '渲染受控页面')]
+  工具定义类型                : McpToolDef
+
+$ call_tool()  —— 协议化调用
+  call_tool('run_spine'): {'stage': 'S5_persist'}
+  call_tool('render_page'): {'html_len': 1024}
+
+$ McpBridge 桥接到工具注册表
+  server_name           : chiyu-foundation
+  已注册工具                 : ['mcp__chiyu-foundation__run_spine', 'mcp__chiyu-foundation__render_page']
+  注册后可查工具               : ['mcp__chiyu-foundation__render_page', 'mcp__chiyu-foundation__run_spine']
+  传输层已断开：底座能力对外部智能体与业务系统按标准协议暴露。

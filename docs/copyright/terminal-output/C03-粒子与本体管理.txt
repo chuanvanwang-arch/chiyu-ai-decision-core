@@ -1,0 +1,20 @@
+==============================================================================
+  功能演示 03　粒子与本体管理
+  统一业务实体模型 Particle 与本体图 OntologyGraph
+==============================================================================
+
+$ 构造粒子 Particle（业务事实的统一载体）
+  particle_id           : p-order-001  type=order  layer=L1  status=open
+  particle_id           : p-contract-001  type=contract  layer=L1  status=signed
+
+$ 写时钩子：内容哈希 content_hash 与嵌入补齐 embedding
+    p-order-001: 文本 17 字 -> 向量维度 384，L2 范数 1.0
+    p-contract-001: 文本 18 字 -> 向量维度 384，L2 范数 1.0
+
+$ 本体图 OntologyGraph：受控谓词维护实体间关系（谓词由消费方注入）
+  受控谓词（K 层）             : ['DECIDED_ON', 'REFERENCED_PRECEDENT']
+  已建立 2 条受控边：dec-001 -DECIDED_ON-> p-order-001
+                    dec-001 -REFERENCED_PRECEDENT-> p-contract-001
+
+$ 受控谓词闸：未受控谓词必须被拒绝（防止事实源分裂）
+  已拦截 -> ValueError: 未受控谓词：'随便造一个谓词'（须 ∈ profile.predicates 的 K 层）

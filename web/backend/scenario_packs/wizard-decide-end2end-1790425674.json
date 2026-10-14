@@ -1,0 +1,53 @@
+{
+  "id": "wizard-decide-end2end-1790425674",
+  "name": "端到端增值·初稿包",
+  "level": "end2end",
+  "direction": "retail",
+  "mode": "standard",
+  "plugins": [
+    "terminal",
+    "loop",
+    "subagent",
+    "web_search",
+    "team"
+  ],
+  "workflow": {
+    "steps": [
+      {
+        "name": "perceive",
+        "prompt": "感知：采集信号",
+        "depends_on": []
+      },
+      {
+        "name": "cognize",
+        "prompt": "认知：装配分层上下文",
+        "depends_on": [
+          "perceive"
+        ]
+      },
+      {
+        "name": "decide",
+        "prompt": "决策：评分与红线校验",
+        "depends_on": [
+          "cognize"
+        ]
+      },
+      {
+        "name": "execute",
+        "prompt": "执行：派发并回写轨迹",
+        "depends_on": [
+          "decide"
+        ]
+      }
+    ]
+  },
+  "knowledge_needs": [
+    {
+      "layer": "L1",
+      "dims": [
+        "semantics"
+      ]
+    }
+  ],
+  "locked_by": "web"
+}

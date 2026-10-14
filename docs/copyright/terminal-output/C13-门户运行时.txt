@@ -1,0 +1,28 @@
+==============================================================================
+  功能演示 13　门户运行时
+  自然语言→受控 Schema→HTML，与引导式导航生成
+==============================================================================
+
+$ PAGE_TYPES / COMPONENT_KINDS  —— 受控页面与组件闭集
+  PAGE_TYPES            : ['dashboard', 'table', 'form', 'detail', 'workspace', 'approval', 'conversation']
+  COMPONENT_KINDS       : ['metric-card', 'table', 'form', 'detail', 'reasoning-trace', 'approval-queue', 'conflict-marker', 'goal-form', 'interaction-panel', 'acceptance-checklist', 'chat-log', 'composer', 'goal-bar']
+
+$ guard_nl_input()  —— 输入守卫（拦截脚本注入）
+  输入 '显示本季度全部订单的列表'     : ok=True  reason=
+  输入 '<script>alert(1)</scri': ok=False  reason=检测到注入模式: '<script'
+
+$ parse_nl_to_schema()  —— 自然语言解析为受控 Schema
+  page_type             : n/a
+  confidence            : 0.9
+  needs_clarification   : False
+  schema 键              : ['version', 'type', 'title', 'layout', 'components']
+
+$ render_page()  —— 渲染为 HTML（非法 Schema 拒绝，绝不尽力渲染）
+  ok                    : True
+  html 长度               : 416
+    HTML 片段：<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>季度订单</title><link rel="stylesheet" href="/portal/page.
+
+$ render_onboarding()  —— 生成引导式导航页
+  引导步骤数                 : 4
+  返回类型                  : OnboardingResult
+  生成 HTML 长度            : 3130

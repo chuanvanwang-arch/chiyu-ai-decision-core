@@ -1,0 +1,18 @@
+usage: chiyu [-h] [--version]
+             {decide,portal,evolution,selftest,modes,shell,dev} ...
+
+ChiYu AI 原生决策平台 —— 终端运行入口
+
+positional arguments:
+  {decide,portal,evolution,selftest,modes,shell,dev}
+    decide              跑决策脊柱（确定性分支）
+    portal              免代码门户
+    evolution           平台自进化
+    selftest            跑包测试
+    modes               列出四种工作模式及启用插件
+    shell               受限命令壳（两版共有）
+    dev                 完整 Python REPL（仅全代码版）
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

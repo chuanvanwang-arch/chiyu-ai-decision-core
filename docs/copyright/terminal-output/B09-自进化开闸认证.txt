@@ -1,0 +1,24 @@
+ID                          状态      有鉴别力      标题
+----------------------------------------------------------------------------
+G1-shadow-replay            green   是         影子重放
+                            空样本判拒（盲改红线）+ 正常样本可过
+G2-guard-before-rule        green   是         拒绝出方守卫优先
+                            非白名单键被拒且留痕 rejected（不出任何处方）
+G3-transactional-atomic     green   是         事务原子·失败逆写回滚
+                            状态落库失败时触发逆写回滚（无半应用态）
+G4-budget-circuit-cooldown  green   是         预算+熔断+冷却
+                            熔断(FAILURE_LIMIT=2)+冷却方向语义正确；budget_deadline 由夜批调度器注入并强制；内核提供熔断机制（非内核原语）
+G5-audit-chain-rollback     green   是         全链审计+一键回滚
+                            构建/验证一致 + 篡改即失配 + 回滚可达
+G6-verdict-readable         green   是         verdict 机器可读
+                            verdict=reject 一律挂起且零写入（fail-safe）
+G7-idempotency-anchor       green   是         幂等+系统锚
+                            同内容键稳定 + 换天换键 + 空 scope 拒 + 系统锚可用
+GUARD-G1-widen-never-auto   green   是         G1·阈值放宽永不自动
+                            放宽=forbidden，收紧=允许
+GUARD-G2-redline-suspend    green   是         G2·红线命中挂起
+                            命中即挂起 + 应用路径不写配置（异步人工处置）
+GUARD-G3-readonly-baseline  green   是         G3·基线/L0 物理只读
+                            L0 契约 + ai-* 基线均拒写，正常路径放行
+----------------------------------------------------------------------------
+ready=True checks=10 green=10 red=0 note=0

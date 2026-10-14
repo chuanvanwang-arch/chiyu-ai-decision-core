@@ -1,0 +1,38 @@
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   Copyright 2026 北京青羽智行科技有限公司 (Beijing ChiYu Zhixing Technology Co., Ltd.)
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   ============================================================================
+   参赛说明（上海开源软件应用创新大赛）
+   ----------------------------------------------------------------------------
+   本仓库为参赛作品《企业级 AI 决策中枢 · ChiYu 青羽》的开源代码快照，对应
+   ChiYu AI-Native Foundation（AI 原生基础底座 + 决策脊柱）。
+
+   仓库内容：
+     - chiyu-kernel     L0 契约 + L1 基础设施（能力注册、决策脊柱、场景包、插件）
+     - chiyu-decision   L2 决策智能内核（K-M-D / 九尺子 / 红线）
+     - chiyu-portal     L3 门户运行时（可选装）
+     - chiyu-cli        命令行入口（modes / decide / portal / shell）
+     - examples         参考消费方（reference_consumer）与测试
+
+   不包含的内容（遵循 .gitignore，亦不属本仓库范围）：
+     - 大体积模型权重（models/**，可经 tools/export_bge_onnx.py 复现）
+     - node_modules（web/ 前端依赖，可经 npm install 复现）
+     - 消费方专有业务逻辑（APS / CRM 等产品的领域代码不在本底座仓库内）
+
+   运行与测试见 SUBMISSION.md。
+   ============================================================================

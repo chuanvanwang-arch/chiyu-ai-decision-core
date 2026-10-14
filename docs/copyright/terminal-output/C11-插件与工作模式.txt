@@ -1,0 +1,44 @@
+==============================================================================
+  功能演示 11　插件与工作模式
+  插件注册表、六类内置插件与四种工作模式
+==============================================================================
+
+$ 注册内置插件
+  内置插件数                 : 6
+    - terminal     能力=受限命令壳
+    - loop         能力=智能体循环
+    - subagent     能力=子智能体
+    - web_search   能力=网页搜索
+    - team         能力=智能体团队
+    - voice        能力=语音输入
+
+$ mode_ids()  —— 四种工作模式
+  模式标识                  : ['creative', 'minimal', 'ptc', 'standard']
+  缺省模式                  : standard
+
+$ 逐模式解析：启用插件与惰性关闭插件
+
+    【creative】创造模式
+      说明    ：Everything is a Plugin：全插件 + voice + 自定义 hook，开放插件注册与模式声明框架。
+      启用插件：terminal, loop, subagent, web_search, team, voice
+      惰性关闭：（无）
+
+    【minimal】极简模式
+      说明    ：仅终端：隐藏门户与导航，只剩 chiyu shell + 受限对话环；最快上手、最小心智负担。
+      启用插件：terminal
+      惰性关闭：（无）
+
+    【ptc】PTC 模式
+      说明    ：先写「小程序/编排脚本」再批量调工具：开启脚本规划槽位，Agent 先生成幂等计划再批量 dispatch。
+      启用插件：terminal, loop, web_search
+      惰性关闭：（无）
+
+    【standard】标准模式
+      说明    ：全能力默认编排：6 插件全开 + 确定性决策脊柱；Phase B 接 DeepSeek 走 auto 路径。
+      启用插件：terminal, loop, subagent, web_search, team
+      惰性关闭：（无）
+
+$ 未知模式回落默认并留告警（不中断运行）
+  回落模式                  : standard
+  告警                    : ["未知工作模式 '不存在的模式' ⇒ 回落默认 'standard'"]
+  启用插件                  : ['terminal', 'loop', 'subagent', 'web_search', 'team']

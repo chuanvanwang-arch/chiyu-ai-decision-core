@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chiyu-cli"
+version = "0.1.0"
+description = "ChiYu AI 原生决策平台终端运行入口（CLI + REPL）"
+requires-python = ">=3.11"
+
+[project.scripts]
+chiyu = "chiyu_cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "../chiyu-kernel/src", "../chiyu-decision/src", "../chiyu-portal/src"]
+testpaths = ["tests"]

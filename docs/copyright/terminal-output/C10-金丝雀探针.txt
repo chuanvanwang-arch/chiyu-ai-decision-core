@@ -1,0 +1,28 @@
+==============================================================================
+  功能演示 10　金丝雀探针
+  接入期连通性与落库自检（三判据）
+==============================================================================
+
+$ 先演示「判据不可判定」：不注入 references / 红线回调时不得静默放行
+  decision_persisted    : True
+  memory_net_materialized: False
+  redline_blocked       : False
+  ok（三判据全绿）             : False
+
+$ 补齐两判据：注入 references（记忆网供给）与红线决策回调
+  报告类型                  : CanaryReport
+  decision_persisted    : True
+  memory_net_materialized: True
+  redline_blocked       : True
+  ok（三判据全绿）             : True
+    细节 details：
+      run_persisted: True
+      event_row: True
+      particle_row: True
+      memory_net: engine 边 2 / 期望 2
+      redline: persisted=False, rejected=True, pending=False
+
+$ 三判据结论
+    判据一：event 与 particle 成对写入（不成对即红）
+    判据二：engine 边数量恰好相等（多写/少写即红）
+    判据三：红线命中须挡住落库（落库即红）

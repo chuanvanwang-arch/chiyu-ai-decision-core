@@ -1,0 +1,123 @@
+<Slide style={{
+    width: '1280px',
+    height: '720px',
+    background: '#0C0E14',
+    padding: '0px 67px',
+    fontFamily: 'Microsoft YaHei',
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+}}>
+    <Box style={{ position: 'absolute', top: -70, right: -50, width: 420, height: 420, borderRadius: '50%', background: '#22D3EE', opacity: 0.06 }} />
+
+    <Box style={{ marginTop: 38, position: 'relative', zIndex: 1 }}>
+        <Text style={{ fontSize: 14, color: '#22D3EE', letterSpacing: 2 }}>03 · 与原有系统 / 新增场景的关系</Text>
+    </Box>
+    <Box style={{ marginTop: 14, position: 'relative', zIndex: 1 }}>
+        <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#E8EAED', lineHeight: 1.3 }}>
+            不是替换原有系统，而是把「判断」这一层抽出来共用
+        </Text>
+    </Box>
+    <Box style={{ marginTop: 12, position: 'relative', zIndex: 1 }}>
+        <Text style={{ fontSize: 16, color: '#A8AEBE', lineHeight: 1.5 }}>
+            各域系统继续管自己的业务；决策内核只建一次，之后每个新场景都靠一份配置画像接入。
+        </Text>
+    </Box>
+    <Box style={{ marginTop: 25, height: 1, width: '100%', background: '#2A3040', position: 'relative', zIndex: 1 }} />
+
+    <Box style={{ marginTop: 20, height: 454, flexDirection: 'column', gap: 14, position: 'relative', zIndex: 1 }}>
+
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 20, height: 300 }}>
+            <Box style={{
+                width: 342, height: 300, background: '#141922', border: '1px solid #2A3040', borderRadius: 12,
+                padding: '20px 20px', justifyContent: 'space-between',
+            }}>
+                <Box style={{ gap: 10 }}>
+                    <Text style={{ fontSize: 15, color: '#60667C', letterSpacing: 1 }}>FROM</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#E8EAED', lineHeight: 1.35 }}>原有系统<br />各域自建</Text>
+                    <Text style={{ fontSize: 14, color: '#A8AEBE', lineHeight: 1.55 }}>
+                        销售、研发、供应链各有一套系统，数据与业务语义都在里面；但经验与判断过程留在人脑里，
+                        换一个域就要重做一遍，前面攒下的能力无法复用。
+                    </Text>
+                </Box>
+                <Text style={{ fontSize: 13, color: '#A8AEBE' }}>存了结果，没存判断</Text>
+            </Box>
+
+            <svg width={40} height={24} viewBox='0 0 40 24'>
+                <path d='M0 12 L28 12' stroke='#22D3EE' strokeWidth='2' fill='none' />
+                <polygon points='28,6 28,18 40,12' fill='#22D3EE' />
+            </svg>
+
+            <Box style={{
+                width: 342, height: 300, background: '#1B2130', border: '1px solid #22D3EE', borderRadius: 12,
+                padding: '20px 20px', justifyContent: 'space-between',
+            }}>
+                <Box style={{ gap: 10 }}>
+                    <Text style={{ fontSize: 15, color: '#22D3EE', letterSpacing: 1 }}>CORE</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#22D3EE', lineHeight: 1.35 }}>抽取公共<br />决策内核</Text>
+                    <Text style={{ fontSize: 14, color: '#A8AEBE', lineHeight: 1.55 }}>
+                        裁决主链、双轨记忆、粒子契约、事件总线、审计链 —— 不是从零设计，
+                        而是从真实项目里跑通的实证中抽出来，之后反哺到每个业务域。
+                        内核里不出现任何业务字面量，领域取值全部由配置画像注入。
+                    </Text>
+                </Box>
+                <Text style={{ fontSize: 13, color: '#22D3EE' }}>内核零业务字面量</Text>
+            </Box>
+
+            <svg width={40} height={24} viewBox='0 0 40 24'>
+                <path d='M0 12 L28 12' stroke='#22D3EE' strokeWidth='2' fill='none' />
+                <polygon points='28,6 28,18 40,12' fill='#22D3EE' />
+            </svg>
+
+            <Box style={{
+                width: 342, height: 300, background: '#141922', border: '1px solid #2A3040', borderRadius: 12,
+                padding: '20px 20px', justifyContent: 'space-between',
+            }}>
+                <Box style={{ gap: 10 }}>
+                    <Text style={{ fontSize: 15, color: '#60667C', letterSpacing: 1 }}>TO</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#E8EAED', lineHeight: 1.35 }}>新增场景<br />零内核改动</Text>
+                    <Text style={{ fontSize: 14, color: '#A8AEBE', lineHeight: 1.55 }}>
+                        进入新行业、新业务域：只要一份配置画像 —— 领域取值、红线目录、评分口径。
+                        装上车就能跑，不改内核一行代码；扩展不用停机改造，也不用另起一套系统。
+                    </Text>
+                </Box>
+                <Text style={{ fontSize: 13, color: '#A8AEBE' }}>换配置，不换内核</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'column', gap: 7 }}>
+            <Box style={{
+                height: 42, flexDirection: 'row', alignItems: 'center', gap: 18,
+                background: '#141922', border: '1px solid #2A3040', borderRadius: 8, padding: '0px 18px',
+            }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#22D3EE', width: 150 }}>① 不替换</Text>
+                <Text style={{ fontSize: 14, color: '#A8AEBE', lineHeight: 1.5 }}>
+                    原系统继续承载业务语义与数据，平台只接管「判断过程」这一层 —— 存量投资不被推翻。
+                </Text>
+            </Box>
+            <Box style={{
+                height: 42, flexDirection: 'row', alignItems: 'center', gap: 18,
+                background: '#141922', border: '1px solid #2A3040', borderRadius: 8, padding: '0px 18px',
+            }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#22D3EE', width: 150 }}>② 抽取并反哺</Text>
+                <Text style={{ fontSize: 14, color: '#A8AEBE', lineHeight: 1.5 }}>
+                    内核来自真实项目的实证沉淀，抽取之后再反哺各系统 —— 越用越准的能力回到每个域里。
+                </Text>
+            </Box>
+            <Box style={{
+                height: 42, flexDirection: 'row', alignItems: 'center', gap: 18,
+                background: '#141922', border: '1px solid #2A3040', borderRadius: 8, padding: '0px 18px',
+            }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#22D3EE', width: 150 }}>③ 平台自己也长</Text>
+                <Text style={{ fontSize: 14, color: '#A8AEBE', lineHeight: 1.5 }}>
+                    新增智能体、沉淀技能、夜间自调参 —— 自动的是执行，不是权力：阈值放宽永不自动，红线命中挂起待人。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
+        <Text style={{ fontSize: 13, color: '#60667C' }}>AI 原生决策智能平台 · 2026</Text>
+        <Text style={{ fontSize: 13, color: '#60667C' }}>03 / 03</Text>
+    </Box>
+</Slide>

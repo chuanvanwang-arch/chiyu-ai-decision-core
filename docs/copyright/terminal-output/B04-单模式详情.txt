@@ -1,0 +1,5 @@
+工作模式：ptc —— PTC 模式
+说明    ：先写「小程序/编排脚本」再批量调工具：开启脚本规划槽位，Agent 先生成幂等计划再批量 dispatch。
+启用插件：terminal, loop, web_search
+惰性关闭：subagent, team, voice
+Phase A 后端：deterministic（Phase B → deepseek-ai/DeepSeek-V4-Flash）

@@ -1,0 +1,40 @@
+==============================================================================
+  功能演示 05　情境装配与降级召回
+  分层情境 L1-L4、三级降级召回与供需缺口检查
+==============================================================================
+
+$ 情境分层常量
+  CONTEXT_LAYERS        : ['L1', 'L2', 'L3', 'L4']
+  CONTEXT_DIMENSIONS    : ['identity', 'structure', 'semantics', 'time_config', 'decision_history', 'operational_state', 'governance']
+
+$ degraded_recall()  —— 三级降级召回（真向量通道未就绪时如实降级并留痕）
+  池内条目数                 : 3
+  命中条目数                 : 2
+  召回档位 tier             : fts
+  是否使用真向量               : False
+  向量覆盖率                 : 0.0
+    - k1
+    - k2
+    降级留痕（notes）：
+      · 查询向量未提供或池内无向量 → 真向量通道未就绪，如实降级
+      · 向量覆盖率 0% < 80%，结果可靠性低
+
+$ to_supply_layer(result)  —— 召回结果落入供给层
+  供给层                   : {'L2': 2}
+
+$ assemble(needs, provided)  —— 按分层情境模型装配上下文
+  装配结果类型                : AssemblyResult
+  facts（按层聚合）           : {}
+  供给报告                  : {'required': (('L2', '先例'), ('L1', '制度')), 'supplied': (), 'missing': (('L2', '先例'), ('L1', '制度')), 'degraded_layers': ('L1',)}
+
+$ check_supply_demand(needs, supply)  —— 供需缺口检查（不静默返回空）
+  task_name             : 是否批准该客户的预算追加请求
+  知识层级                  : 3
+  查询词                   : ['客户', '预算', '交付']
+  检出供需缺口 2 项：
+    - SupplyDemandGap(layer='L2', code='INSUFFICIENT_EXPERIENCE', detail='先例 0 < 3（新域冷启动）')
+    - SupplyDemandGap(layer='L3', code='MISSING_HITL', detail='人工池无待办（HITL 检查点缺失）')
+
+$ missing_context_dimensions(supplied)  —— 七维齐全轴的缺失项
+    已供维度：['identity', 'semantics']
+    缺失维度：['structure', 'time_config', 'decision_history', 'operational_state', 'governance']

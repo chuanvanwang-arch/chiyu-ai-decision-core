@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><title>ChiYu 引导式导航 · 选工作模式</title>
+<style>
+ body{font-family:-apple-system,Segoe UI,Roboto,'Microsoft YaHei',sans-serif;
+   margin:0;background:#f8fafc;color:#0f172a;}
+ .ob-wrap{max-width:920px;margin:0 auto;padding:28px 20px;}
+ h1{font-size:20px;margin:0 0 4px;}
+ .ob-sub{color:#64748b;font-size:13px;margin:0 0 18px;}
+ .ob-steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+ .ob-step{padding:7px 12px;border-radius:20px;background:#e0f2fe;color:#075985;
+   border:1px solid #7dd3fc;font-size:13px;font-weight:600;}
+ .ob-step.ob-active{background:#16a34a;color:#fff;border-color:#16a34a;
+   box-shadow:0 0 0 3px rgba(22,163,74,.15);}
+ .ob-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+ .ob-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;}
+ .ob-card.ob-default{border-color:#16a34a;}
+ .ob-card h3{margin:0 0 6px;font-size:15px;}
+ .ob-tag{font-size:10px;font-weight:600;color:#16a34a;
+   border:1px solid #16a34a;border-radius:8px;padding:1px 6px;vertical-align:middle;}
+ .ob-card p{margin:0 0 8px;font-size:12.5px;color:#475569;line-height:1.6;}
+ .ob-plugins{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;}
+ .ob-pill{font-size:11px;padding:2px 8px;border-radius:10px;background:#dcfce7;color:#166534;}
+ .ob-pb{font-size:11px;color:#0891b2;}
+</style></head><body><div class='ob-wrap'><h1>ChiYu 引导式页面导航</h1><p class='ob-sub'>选方向 → 选工作流 → 选工作模式 → 进入工作台。菜单与可选工作流均从插件注册表动态生成；方向经 TenantProfile 注入，门户零领域字面量。</p><div class='ob-steps'><span class='ob-step'><b>1</b> 选方向</span><span class='ob-step'><b>2</b> 选工作流</span><span class='ob-step ob-active'><b>3</b> 选工作模式</span><span class='ob-step'><b>4</b> 进入工作台</span></div><div class='ob-cards'><div class='ob-card'><h3>创造模式</h3><p>Everything is a Plugin：全插件 + voice + 自定义 hook，开放插件注册与模式声明框架。</p><div class='ob-plugins'><span class='ob-pill'>terminal</span><span class='ob-pill'>loop</span><span class='ob-pill'>subagent</span><span class='ob-pill'>web_search</span><span class='ob-pill'>team</span><span class='ob-pill'>voice</span></div><div class='ob-pb'>Phase B → deepseek-ai/DeepSeek-V4-Flash</div></div><div class='ob-card'><h3>极简模式</h3><p>仅终端：隐藏门户与导航，只剩 chiyu shell + 受限对话环；最快上手、最小心智负担。</p><div class='ob-plugins'><span class='ob-pill'>terminal</span></div><div class='ob-pb'>无需 LLM（确定性）</div></div><div class='ob-card'><h3>PTC 模式</h3><p>先写「小程序/编排脚本」再批量调工具：开启脚本规划槽位，Agent 先生成幂等计划再批量 dispatch。</p><div class='ob-plugins'><span class='ob-pill'>terminal</span><span class='ob-pill'>loop</span><span class='ob-pill'>web_search</span></div><div class='ob-pb'>Phase B → deepseek-ai/DeepSeek-V4-Flash</div></div><div class='ob-card ob-default'><h3>标准模式 <span class='ob-tag'>DEFAULT</span></h3><p>全能力默认编排：6 插件全开 + 确定性决策脊柱；Phase B 接 DeepSeek 走 auto 路径。</p><div class='ob-plugins'><span class='ob-pill'>terminal</span><span class='ob-pill'>loop</span><span class='ob-pill'>subagent</span><span class='ob-pill'>web_search</span><span class='ob-pill'>team</span></div><div class='ob-pb'>Phase B → deepseek-ai/DeepSeek-V4-Flash</div></div></div></div></body></html>

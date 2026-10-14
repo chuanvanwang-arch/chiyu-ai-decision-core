@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chiyu-portal"
+version = "0.1.0"
+description = "免代码门户：NL 到受控 Schema 到渲染器（#7）"
+requires-python = ">=3.11"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chiyu_portal"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "../chiyu-kernel/src"]
+testpaths = ["src/chiyu_portal/tests"]

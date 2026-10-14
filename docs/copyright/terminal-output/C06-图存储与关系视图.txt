@@ -1,0 +1,43 @@
+==============================================================================
+  功能演示 06　图存储与关系视图
+  只读派生协议、多跳遍历、时间线与决策回链
+==============================================================================
+
+$ store.controlled()  —— 受控谓词清单（消费方注入）
+  受控谓词                  : ['BELONGS_TO', 'DECIDED_ON', 'DERIVED_FROM_EXCEPTION', 'ESTABLISHES_FRAME', 'OVERRIDES', 'REFERENCED_PRECEDENT', 'SIGNS']
+
+$ out_edges('customer-1')  —— 一跳出边查询
+    customer-1 -SIGNS-> contract-1
+
+$ in_edges('contract-1')  —— 一跳入边查询
+    customer-1 -SIGNS-> contract-1
+
+$ traverse('customer-1', max_hops=3)  —— 多跳遍历（带环检测与深度上限）
+  起点                    : customer-1
+  到达节点                  : ['contract-1', 'customer-1']
+  路径数                   : 1
+    customer-1 -> contract-1
+  截断标记 truncated        : False
+
+$ relation_view(store, 'customer-1')  —— 关系图谱视图
+    root: customer-1 项
+    nodes: 2 项
+    edges: 1 项
+    paths: 1 项
+    truncated: False 项
+    controlled: 7 项
+
+$ timeline_view(...)  —— 时间线叙事视图（四源只读聚合）
+  时间线条目 4 条（按时间基准升序）：
+    2026-09-01T10:00:00  [particle]  order  ->  None
+    2026-09-02T10:00:00  [graph_edge]  SIGNS  ->  contract-1
+    2026-09-03T09:00:00  [event]  decision  ->  evt-1
+    2026-09-03T10:00:00  [decision]  None  ->  dec-1
+
+$ decision_backlinks(store, 'dec-1')  —— 决策回链（审计四问）
+    decision_id: dec-1
+    referenced_by: ()
+    overrides: ()
+    overridden_by: ('dec-2',)
+    from_exception: ()
+    controlled: ['BELONGS_TO', 'DECIDED_ON', 'DERIVED_FROM_EXCEPTION', 'ESTABLISHES_FRAME', 'OVERRIDES', 'REFERENCED_PRECEDENT', 'SIGNS']

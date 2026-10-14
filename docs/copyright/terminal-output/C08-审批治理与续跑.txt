@@ -1,0 +1,26 @@
+==============================================================================
+  功能演示 08　审批治理与续跑
+  待定/通过/驳回三态模型与幂等续跑（冻结裁定）
+==============================================================================
+
+$ 第一次执行：审批结论为待定 PENDING（persister 落库，待人工裁定）
+  stage_reached         : S5_persist
+  confidence            : 1.0
+  persisted             : True
+  落库内容                  : {'stage': 'S5_persist', 'confidence': 1.0, 'autonomous': True, 'verdict': 'PENDING'}
+
+$ 人工裁定：置为 APPROVED，记录裁定时间与置信度快照
+  裁定结果                  : APPROVED
+  冻结置信度                 : 1.0
+
+$ 续跑（resume）：只补落库阶段，不重算置信度、不重判红线
+  续跑后 confidence        : 1.0
+  与冻结值一致                : True
+  裁定字段未被改写              : True
+  幂等性                   : True
+
+$ 终态纪律：驳回 REJECTED 为终态，不得经续跑复活
+  redline_hit           : True
+  redline_reasons       : ['预算外承诺']
+  autonomous（红线屏蔽）      : False
+  结论：红线命中强制改判为驳回，自主放行被屏蔽，且驳回为终态不可续跑复活。
